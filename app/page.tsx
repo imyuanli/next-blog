@@ -1,32 +1,65 @@
-import Link from 'next/link'
-import { compareDesc, format, parseISO } from 'date-fns'
-import { allPosts, Post } from 'contentlayer/generated'
+import siteData from '@/sitedata.json'
+import React from 'react'
+import {
+    AiOutlineFacebook,
+    AiOutlineGithub,
+    AiOutlineInstagram,
+    AiOutlineLinkedin,
+    AiOutlineMail,
+    AiOutlineQq,
+    AiOutlineTwitter,
+    AiOutlineWeibo,
+    AiOutlineWhatsApp,
+    AiOutlineYoutube,
+    AiOutlineZhihu
+} from "react-icons/ai";
 
-function PostCard(post: Post) {
-  return (
-      <div className="mb-8">
-        <h2 className="mb-1 text-xl">
-          <Link href={post.url} className="text-blue-700 hover:text-blue-900 dark:text-blue-400">
-            {post.title}
-          </Link>
-        </h2>
-        <time dateTime={post.date} className="mb-2 block text-xs text-gray-600">
-          {format(parseISO(post.date), 'LLLL d, yyyy')}
-        </time>
-        <div className="text-sm [&>*]:mb-3 [&>*:last-child]:mb-0" dangerouslySetInnerHTML={{ __html: post.body.html }} />
-      </div>
-  )
+const iconList = {
+    github: AiOutlineGithub,
+    twitter: AiOutlineTwitter,
+    facebook: AiOutlineFacebook,
+    youtube: AiOutlineYoutube,
+    linkedin: AiOutlineLinkedin,
+    instagram: AiOutlineInstagram,
+    whatsapp: AiOutlineWhatsApp,
+    email: AiOutlineMail,
+    qq: AiOutlineQq,
+    zhihu: AiOutlineZhihu,
+    weibo: AiOutlineWeibo
 }
 
 export default function Home() {
-  const posts = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
 
-  return (
-      <div className="mx-auto max-w-xl py-8">
-        <h1 className="mb-8 text-center text-2xl font-black">Next.js + Contentlayer Example</h1>
-        {posts.map((post, idx) => (
-            <PostCard key={idx} {...post} />
-        ))}
-      </div>
-  )
+    return (
+        <div className={'space-y-4'}>
+            <div className={'font-bold text-3xl'}>你好，我是 {siteData.author} </div>
+            <div className={'space-y-4 text-gray-500'}>
+                <div>是一名前端开发工程师。</div>
+                <div>我是 <span className={'font-semibold'}>React</span> 的狂热爱好者，喜欢极简的ui设计。</div>
+                <div>我做了很多开源的项目，虽然 star 很少，但是对我的技术有很多的帮助。</div>
+                <div>As you can probably tell, this website is still a work in progress.</div>
+            </div>
+            <div className={'flex items-center space-x-4'}>
+                {Object.keys(siteData.socials).map((item) => {
+                    const social = siteData.socials[item]
+                    if (social) {
+                        return (
+                            <a
+                                href={
+                                    item == 'email' ? `mailto:${social}`
+                                        :
+                                        item == 'qq' ? `http://wpa.qq.com/msgrd?v=3&uin=${social}&site=qq&menu=yes`
+                                            :
+                                            social
+                                }
+                                target={'_blank'}
+                            >
+                                {React.createElement(iconList[item], {size: 24})}
+                            </a>
+                        )
+                    }
+                })}
+            </div>
+        </div>
+    )
 }

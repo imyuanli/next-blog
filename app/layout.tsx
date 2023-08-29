@@ -1,8 +1,8 @@
 import './globals.css'
 import type {Metadata} from 'next'
 import Navbar from "@/components/nav";
-import siteData from '@/sitedata.json'
 import ThemeProvider from "@/components/theme-provider";
+import siteData from "@/aurora.config";
 
 export const metadata: Metadata = {
     title: siteData.title,

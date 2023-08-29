@@ -32,8 +32,8 @@ export default function Home() {
 
     return (
         <div className={'space-y-4'}>
-            <div className={'font-bold text-3xl'}>你好，我是 {siteData.author} </div>
-            <div className={'space-y-4 text-gray-500'}>
+            <div className={'text-2xl  font-semibold'}>你好，我是 {siteData.author} </div>
+            <div className={'space-y-2 text-gray-500'}>
                 <div>是一名前端开发工程师。</div>
                 <div>我是 <span className={'font-semibold'}>React</span> 的狂热爱好者，喜欢极简的ui设计。</div>
                 <div>我做了很多开源的项目，虽然 star 很少，但是对我的技术有很多的帮助。</div>

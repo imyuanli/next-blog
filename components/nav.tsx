@@ -42,16 +42,14 @@ const Navbar = () => {
 
     return (
         <nav className={'pt-8 w-full flex justify-between items-center px-4 sm:mx-auto max-w-3xl'}>
-            <div className={'text-xl font-semibold font-mono'}>{siteData.author}</div>
+            <div className={'text-xl font-bold font-mono'}>{siteData.author}</div>
             <div className={'md:block hidden'}>
                 <div className={'flex justify-center items-center space-x-4'}>
-                    {navItems.map((item) => {
-                        return (
-                            <Link href={'/' + item.value}>
-                                <div className={active == item.name ? 'font-semibold' : ''}>{item.name}</div>
-                            </Link>
-                        )
-                    })}
+                    {navItems.map((item) => (
+                        <Link href={'/' + item.value}>
+                            <div className={active == item.name ? 'font-semibold' : ''}>{item.name}</div>
+                        </Link>
+                    ))}
                     <Link href={siteData.repo}>
                         <AiOutlineGithub style={iconStyle}/>
                     </Link>

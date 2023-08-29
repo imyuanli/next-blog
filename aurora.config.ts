@@ -13,10 +13,6 @@ const siteData = {
     navDescribe: "Front-end Engineer",
     navItems: [
         {
-            name: '首页',
-            value: '/'
-        },
-        {
             name: '博客',
             value: '/blog'
         },

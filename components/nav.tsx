@@ -1,5 +1,4 @@
 'use client';
-import siteData from '@/sitedata.json'
 import Link from "next/link";
 import {useTheme} from "next-themes";
 import {usePathname} from "next/navigation";
@@ -9,22 +8,8 @@ import {AiOutlineGithub} from "react-icons/ai";
 import {LuMoon, LuSun} from "react-icons/lu";
 import {IoClose} from "react-icons/io5";
 import {GiHamburgerMenu} from "react-icons/gi";
-
-
-const navItems: any = [
-    {
-        name: 'Home',
-        value: ''
-    },
-    {
-        name: 'Blog',
-        value: 'blog'
-    },
-    {
-        name: 'Projects',
-        value: 'projects'
-    }
-]
+import {svgSize} from "@/constant";
+import siteData from "@/aurora.config";
 
 const Navbar = () => {
     //切换主题色
@@ -32,22 +17,25 @@ const Navbar = () => {
 
     //高亮导航栏
     const pathname = usePathname()
-    const active = navItems.find(item => pathname.includes(item.value))?.name
+    const active = siteData.navItems.find((item) => item.value == pathname)?.name
 
     //移动抽屉
     const [open, setOpen] = useState(false)
 
     // iconStyle
-    const iconStyle = {fontSize: 24}
+    const iconStyle = {fontSize: svgSize}
 
     return (
-        <nav className={'pt-8 w-full flex justify-between items-center px-4 sm:mx-auto max-w-3xl'}>
-            <div className={'text-xl font-bold font-mono'}>{siteData.author}</div>
-            <div className={'md:block hidden'}>
-                <div className={'flex justify-center items-center space-x-4'}>
-                    {navItems.map((item) => (
-                        <Link href={'/' + item.value}>
-                            <div className={active == item.name ? 'font-semibold' : ''}>{item.name}</div>
+        <nav className={'pt-8 pb-12 w-full flex justify-between items-center'}>
+            <Link href={'/'}>
+                <div className={'text-xl font-bold font-mono'}>{siteData.author}</div>
+            </Link>
+            <div className={'sm:block hidden'}>
+                <div className={'flex justify-center items-center space-x-4 text-lg'}>
+                    {siteData.navItems.map((item) => (
+                        <Link href={item.value}>
+                            <div
+                                className={`text-zinc-800 ${active == item.name ? 'font-semibold' : ''}`}>{item.name}</div>
                         </Link>
                     ))}
                     <Link href={siteData.repo}>
@@ -63,7 +51,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            <div className={'md:hidden block'}
+            <div className={'sm:hidden block'}
                  onClick={() => {
                      setOpen(true)
                  }}
@@ -80,14 +68,14 @@ const Navbar = () => {
                     <IoClose style={iconStyle}/>
                 </div>
                 <div className={'absolute w-full px-10 py-16 space-y-4'}>
-                    {navItems.map((item, index) => {
+                    {siteData.navItems.map((item, index) => {
                         return (
                             <div>
                                 <Link href={'/' + item.value}>
                                     <div className={active == item.name ? 'font-semibold' : ''}>{item.name}</div>
                                 </Link>
                                 <div className={'mt-4'}>
-                                    {index < navItems.length && <Separator/>}
+                                    {index < siteData.navItems.length && <Separator/>}
                                 </div>
                             </div>
                         )

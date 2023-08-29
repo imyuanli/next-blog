@@ -4,7 +4,6 @@
   "description": "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
   "theme": "system",
   "repo": "https://github.com/timlrx/tailwind-nextjs-starter-blog",
-  "logo": "/static/images/logo.png",
   "socials": {
     "github": "https://github.com",
     "twitter": "https://twitter.com",
@@ -18,8 +17,8 @@
     "weibo": "",
     "zhihu": ""
   },
-  "projects": {
-    "nextjs": {
+  "projects": [
+    {
       "name": "Next.js",
       "url": "https://nextjs.org",
       "description": "The React Framework for Production",
@@ -27,7 +26,7 @@
       "status": "success",
       "repoName": ""
     },
-    "tailwindcss": {
+    {
       "name": "Tailwind CSS",
       "url": "https://tailwindcss.com",
       "description": "A utility-first CSS framework for rapidly building custom designs.",
@@ -35,7 +34,7 @@
       "status": "success",
       "repoName": ""
     },
-    "shadcn-ui": {
+    {
       "name": "Shadcn-ui",
       "url": "https://shadcn-ui.vercel.app",
       "description": "A React UI library that supports Tailwind CSS",
@@ -43,7 +42,7 @@
       "status": "success",
       "repoName": ""
     },
-    "vercel": {
+    {
       "name": "Vercel",
       "url": "https://vercel.com",
       "description": "Develop. Preview. Ship.",
@@ -51,5 +50,5 @@
       "status": "success",
       "repoName": ""
     }
-  }
+  ]
 }

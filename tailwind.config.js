@@ -70,7 +70,191 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      typography: ({ theme }) => ({
+        DEFAULT: {
+          //别人的额
+          css: {
+            a: {
+              color: theme('colors.primary.500'),
+              '&:hover': {
+                color: `${theme('colors.primary.600')}`,
+              },
+              code: { color: theme('colors.primary.400') },
+            },
+            'h1,h2': {
+              fontWeight: '700',
+              letterSpacing: theme('letterSpacing.tight'),
+            },
+            h3: {
+              fontWeight: '600',
+            },
+            code: {
+              color: theme('colors.indigo.500'),
+            },
+          },
+
+          //卡片式
+          // css: {
+          //   color: '#333',
+          //   h1: {
+          //     color: '#000',
+          //     fontWeight: 'bold',
+          //     fontSize: '2rem',
+          //     marginBottom: '1rem',
+          //   },
+          //   h2: {
+          //     color: '#000',
+          //     fontWeight: 'bold',
+          //     fontSize: '1.5rem',
+          //     marginBottom: '0.75rem',
+          //   },
+          //   p: {
+          //     marginBottom: '1rem',
+          //   }
+          // },
+
+          //强调标题
+          // css: {
+          //   color: '#333',
+          //   h1: {
+          //     color: '#000',
+          //     fontWeight: 'bold',
+          //     fontSize: '3rem',
+          //     marginBottom: '1rem',
+          //   },
+          //   h2: {
+          //     color: '#000',
+          //     fontWeight: 'bold',
+          //     fontSize: '2rem',
+          //     marginBottom: '0.75rem',
+          //     borderBottom: '2px solid #000',
+          //     paddingBottom: '0.5rem',
+          //   },
+          //   p: {
+          //     marginBottom: '1rem',
+          //   },
+          // },
+
+          //简洁
+          // css: {
+          //   color: '#333',
+          //   h1: {
+          //     color: '#000',
+          //     fontWeight: 'bold',
+          //     fontSize: '2.5rem',
+          //     marginBottom: '1rem',
+          //   },
+          //   h2: {
+          //     color: '#000',
+          //     fontWeight: 'bold',
+          //     fontSize: '2rem',
+          //     marginBottom: '0.75rem',
+          //   },
+          //   p: {
+          //     marginBottom: '1rem',
+          //   },
+          // },
+
+          //卡片
+          // css: {
+          //   color: '#333',
+          //   h1: {
+          //     color: '#000',
+          //     fontWeight: 'bold',
+          //     fontSize: '2rem',
+          //     marginBottom: '1rem',
+          //   },
+          //   h2: {
+          //     color: '#000',
+          //     fontWeight: 'bold',
+          //     fontSize: '1.5rem',
+          //     marginBottom: '0.75rem',
+          //   },
+          //   p: {
+          //     marginBottom: '1rem',
+          //   },
+          // },
+
+          // 强调段落
+          // css: {
+          //   color: '#333',
+          //   h1: {
+          //     color: '#000',
+          //     fontWeight: 'bold',
+          //     fontSize: '2rem',
+          //     marginBottom: '1rem',
+          //   },
+          //   h2: {
+          //     color: '#000',
+          //     fontWeight: 'bold',
+          //     fontSize: '1.5rem',
+          //     marginBottom: '0.75rem',
+          //   },
+          //   p: {
+          //     marginBottom: '1rem',
+          //     fontStyle: 'italic',
+          //   },
+          // },
+
+          // css: {
+          //   color: '#333',
+          //   h1: {
+          //     color: '#000',
+          //     fontWeight: 'bold',
+          //     fontSize: '2.5rem',
+          //     marginTop: '1.5rem',
+          //     marginBottom: '1rem',
+          //   },
+          //   h2: {
+          //     color: '#000',
+          //     fontWeight: 'bold',
+          //     fontSize: '2rem',
+          //     marginTop: '1.25rem',
+          //     marginBottom: '0.75rem',
+          //   },
+          //   h3: {
+          //     color: '#000',
+          //     fontWeight: 'bold',
+          //     fontSize: '1.75rem',
+          //     marginTop: '1rem',
+          //     marginBottom: '0.5rem',
+          //   },
+          //   p: {
+          //     marginTop: '1rem',
+          //     marginBottom: '1rem',
+          //   },
+          //   a: {
+          //     color: '#3182ce',
+          //     textDecoration: 'underline',
+          //   },
+          //   blockquote: {
+          //     borderLeft: '4px solid #3182ce',
+          //     paddingLeft: '1rem',
+          //     marginLeft: '0',
+          //     marginRight: '0',
+          //   },
+          // },
+
+        },
+        invert: {
+          css: {
+            a: {
+              color: theme('colors.primary.500'),
+              '&:hover': {
+                color: `${theme('colors.primary.400')}`,
+              },
+              code: { color: theme('colors.primary.400') },
+            },
+            'h1,h2,h3,h4,h5,h6': {
+              color: theme('colors.gray.100'),
+            },
+          },
+        },
+      }),
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require('@tailwindcss/typography'),
+  ],
 }

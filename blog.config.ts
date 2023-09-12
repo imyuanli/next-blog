@@ -1,4 +1,4 @@
-const siteData = {
+const siteData: any = {
     author: "yuanli", //网站作者
     title: "Next.js ShadcnUI Blog", //网站的标题
     description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css", //网站的描述
@@ -13,11 +13,11 @@ const siteData = {
     navDescribe: "Front-end Engineer",
     navItems: [
         {
-            name: 'Blog',
+            name: '博客',
             value: '/blog'
         },
         {
-            name: 'Projects',
+            name: '项目',
             value: '/projects'
         }
     ],

@@ -11,7 +11,7 @@ const QrWechat = ({href}: { href: string }) => {
     return (
         <HoverCard>
             <HoverCardTrigger className={'cursor-pointer'}>
-                <Icon icon={AiOutlineWechat} />
+                <Icon icon={AiOutlineWechat} size={20}/>
             </HoverCardTrigger>
             <HoverCardContent>
                 <Image
@@ -24,7 +24,7 @@ const QrWechat = ({href}: { href: string }) => {
                 />
             </HoverCardContent>
         </HoverCard>
-);
+    );
 }
 
 

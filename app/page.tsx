@@ -1,82 +1,47 @@
 import React from 'react'
-import siteData from "@/aurora.config";
-import {
-    AiOutlineFacebook,
-    AiOutlineGithub,
-    AiOutlineInstagram,
-    AiOutlineLinkedin,
-    AiOutlineMail,
-    AiOutlineQq,
-    AiOutlineTwitter,
-    AiOutlineWeibo,
-    AiOutlineYoutube,
-    AiOutlineZhihu
-} from "react-icons/ai";
-import QrWechat from "@/components/qr-wechat";
-import {svgSize} from "@/constant";
 import {Button} from "@/components/ui/button";
-import {BsArrowRightShort} from "react-icons/bs";
 import Link from "next/link";
 import Title from "@/components/title";
-
-const iconList = {
-    github: AiOutlineGithub,
-    twitter: AiOutlineTwitter,
-    facebook: AiOutlineFacebook,
-    youtube: AiOutlineYoutube,
-    linkedin: AiOutlineLinkedin,
-    instagram: AiOutlineInstagram,
-    email: AiOutlineMail,
-    qq: AiOutlineQq,
-    zhihu: AiOutlineZhihu,
-    weibo: AiOutlineWeibo
-}
+import SocialList from "@/components/social-list";
+import {Badge} from "@/components/ui/badge";
 
 export default function Home() {
 
-    const getHref = (item) => {
-        const social = siteData.socials[item]
-        switch (item) {
-            case 'email':
-                return `mailto:${social}`
-            case 'qq':
-                return `http://wpa.qq.com/msgrd?v=3&uin=${social}&site=qq&menu=yes`
-            default:
-                return social
-        }
-    }
-
     return (
         <div className={'space-y-4'}>
-            <Title value={`你好，我是 ${siteData.author}`} />
-            <div className={'space-y-4 text-muted-foreground'}>
-                <div>一名前端开发工程师。</div>
-                <div>我是 <span className={'font-semibold'}>React</span> 的狂热爱好者，喜欢极简的ui设计。</div>
-                <div>我做了很多开源的项目，虽然 star 很少，但是对我的技术有很多的帮助。</div>
-                <Link className={'inline-block'} href={'/projects'}>
+            <Title value={'Next.js ShadcnUI Blog'}/>
+            <div className={'space-y-1'}>
+                <div>一个拥有极简 UI 的 BLOG 框架。</div>
+                <div className={'flex items-center space-x-2'}>
+                    <div>就像它的名字一样，它是基于</div>
+                    <div className={'space-x-2'}>
+                        <Link href={'https://nextjs.org/'}>
+                            <Badge>NEXT.js</Badge>
+                        </Link>
+                        <Link href={'https://www.tailwindcss.cn/'}>
+                            <Badge>Tailwindcss</Badge>
+                        </Link>
+                        <Link href={'https://ui.shadcn.com/'}>
+                            <Badge>shadcn-ui</Badge>
+                        </Link>
+                    </div>
+                    <div>设计及实现出来的。</div>
+                </div>
+                <div>并且它完全使用 TypeScript。</div>
+            </div>
+            <div className={'flex justify-start items-center space-x-2'}>
+                <Link href={'/blog'}>
                     <Button>
-                        查看我的作品 <BsArrowRightShort size={svgSize} className={'ml-2'}/>
+                        阅读我的博客
+                    </Button>
+                </Link>
+                <Link href={'/projects'}>
+                    <Button>
+                        查看我的项目
                     </Button>
                 </Link>
             </div>
-            <div className={'flex items-center space-x-4'}>
-                {Object.keys(siteData.socials).map((item) => {
-                    const social = siteData.socials[item]
-                    if (social) {
-                        return (
-                            <>
-                                {item == 'wechat' ?
-                                    <QrWechat href={social}/>
-                                    :
-                                    <a href={getHref(item)} target={'_blank'}>
-                                        {React.createElement(iconList[item], {size: svgSize})}
-                                    </a>
-                                }
-                            </>
-                        )
-                    }
-                })}
-            </div>
+            <SocialList/>
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import siteData from "@/aurora.config";
+import siteData from "@/blog.config";
 import Title from "@/components/title";
 
 const Projects = () => {

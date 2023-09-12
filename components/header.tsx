@@ -31,7 +31,7 @@ const Header = () => {
             {/*桌面端*/}
             <div className={'h-full sm:block hidden transition duration-200'}>
                 <nav className={'space-x-2 flex justify-center items-center h-full'}>
-                    <div className={'space-x-4 mr-1'}>
+                    <div className={'space-x-4 mr-1 flex'}>
                         {siteData.navItems.map((item: any) => {
                             return (
                                 <Link href={item?.value}

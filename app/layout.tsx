@@ -1,8 +1,8 @@
 import './globals.css'
 import type {Metadata} from 'next'
-import Navbar from "@/components/nav";
 import ThemeProvider from "@/components/theme-provider";
-import siteData from "@/aurora.config";
+import siteData from "@/blog.config";
+import Header from "@/components/header";
 
 export const metadata: Metadata = {
     title: siteData.title,
@@ -12,11 +12,11 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: { children: React.ReactNode }) {
     return (
         <html lang="en">
-        <body className={'min-h-screen font-sans text-[0.95rem]'}>
+        <body className={'min-h-screen font-sans antialiased'}>
         <ThemeProvider>
             <div className={'container'}>
-                <Navbar/>
-                <main>
+                <Header/>
+                <main className={'my-4'}>
                     {children}
                 </main>
             </div>

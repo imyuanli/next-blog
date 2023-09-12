@@ -19,7 +19,7 @@ const Header = () => {
 
     //高亮导航栏
     const pathname = usePathname()
-    const active = siteData.navItems.find((item) => item.value == pathname)?.name
+    const active = siteData.navItems.find((item: any) => item.value == pathname)?.name
 
     return (
         <header className={'flex justify-between items-center py-8 h-24'}>
@@ -32,10 +32,10 @@ const Header = () => {
             <div className={'h-full sm:block hidden transition duration-200'}>
                 <nav className={'space-x-2 flex justify-center items-center h-full'}>
                     <div className={'space-x-4 mr-1'}>
-                        {siteData.navItems.map((item) => {
+                        {siteData.navItems.map((item: any) => {
                             return (
                                 <Link href={item?.value}
-                                      className={`text-sm hover:text-slate-400 ${active == item.name ? 'font-bold' : ''}`}>
+                                      className={`whitespace-nowrap text-sm hover:text-slate-400 ${active == item.name ? 'font-bold' : ''}`}>
                                     {item.name}
                                 </Link>
                             )
@@ -60,7 +60,7 @@ const Header = () => {
                     </SheetTrigger>
                     <SheetContent side={'top'} className={'w-full'}>
                         <div className={'space-y-4 px-12 py-8 text-sm'}>
-                            {siteData.navItems.map((item, index) => {
+                            {siteData.navItems.map((item: any, index: number) => {
                                 return (
                                     <div className={'space-y-4'}>
                                         <Link href={item.value}

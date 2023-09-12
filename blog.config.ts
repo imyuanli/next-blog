@@ -1,8 +1,8 @@
 const siteData = {
     author: "yuanli", //网站作者
-    title: "Aurora Blog", //网站的标题
+    title: "Next.js ShadcnUI Blog", //网站的标题
     description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css", //网站的描述
-    favicon: "/next.svg", //网站的图标
+    logo: "/vercel.svg", //网站的图标
     language: "zh-CN", //网站默认的语言 zh-CN | en-US
     theme: "system", //网站的主题 light | dark | system
     siteUrl: "https://shadcn-blog.vercel.app", //网站的地址
@@ -13,11 +13,11 @@ const siteData = {
     navDescribe: "Front-end Engineer",
     navItems: [
         {
-            name: '博客',
+            name: 'Blog',
             value: '/blog'
         },
         {
-            name: '项目',
+            name: 'Projects',
             value: '/projects'
         }
     ],

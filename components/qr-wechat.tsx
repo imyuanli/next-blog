@@ -5,12 +5,13 @@ import React from "react";
 import {HoverCardContent} from "@/components/ui/hover-card";
 import Image from "next/image";
 import {AiOutlineWechat} from "react-icons/ai";
+import Icon from "@/components/icon";
 
-const QrWechat = ({href}) => {
+const QrWechat = ({href}: { href: string }) => {
     return (
         <HoverCard>
             <HoverCardTrigger className={'cursor-pointer'}>
-                <AiOutlineWechat size={20}/>
+                <Icon icon={AiOutlineWechat} />
             </HoverCardTrigger>
             <HoverCardContent>
                 <Image
@@ -23,7 +24,7 @@ const QrWechat = ({href}) => {
                 />
             </HoverCardContent>
         </HoverCard>
-    );
+);
 }
 
 

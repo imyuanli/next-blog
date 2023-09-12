@@ -1,4 +1,5 @@
 'use client';
+
 import {LuGithub, LuMenu, LuMoon, LuSun, LuSunMoon} from "react-icons/lu";
 import siteData from "@/blog.config";
 import Link from "next/link";
@@ -11,7 +12,7 @@ import {
     SheetContent,
     SheetTrigger
 } from "@/components/ui/sheet";
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
+import {Select, SelectContent, SelectItem, SelectTrigger} from "@/components/ui/select";
 import {useTheme} from "next-themes";
 
 const Header = () => {
@@ -22,7 +23,11 @@ const Header = () => {
 
     return (
         <header className={'flex justify-between items-center py-8 h-24'}>
-            <div>NS Blog</div>
+            {/*logo*/}
+            <Link href={'/'}>
+                {siteData.title}
+            </Link>
+
             {/*桌面端*/}
             <div className={'h-full sm:block hidden transition duration-200'}>
                 <nav className={'space-x-2 flex justify-center items-center h-full'}>
@@ -44,6 +49,7 @@ const Header = () => {
                     <ThemeSwitch/>
                 </nav>
             </div>
+
             {/*移动端*/}
             <div className={'sm:hidden block'}>
                 <Sheet>

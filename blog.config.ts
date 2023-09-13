@@ -54,17 +54,38 @@ const siteData: any = {
             qq: "",
             wechat: "/wechat.jpg", //填入二维码图片地址
         },
-        {
-            name: "Tailwind CSS",
-            url: "https://tailwindcss.com",
-            description: "A utility-first CSS framework for rapid UI development.",
-        },
-        {
-            name: "Shadcn-ui",
-            url: "https://shadcn-ui.vercel.app",
-            description: "A React UI library",
-        }
-    ] //项目展示
+    },
+
+    projects: {
+        title: "作品",
+        description: "下面展示的项目仅供参考，并非真实的状态",// || null
+        //有多种状态 稳定运行 running | 维护中 bug | 开发中 dev | 不再维护 offline
+        list: [
+            {
+                name: "Next.js",
+                url: "https://nextjs.org",
+                description: "The React Framework for Production",
+            },
+            {
+                name: "Tailwind CSS",
+                url: "https://tailwindcss.com",
+                description: "A utility-first CSS framework for rapid UI development.",
+                status: "bug"
+            },
+            {
+                name: "Shadcn-ui",
+                url: "https://shadcn-ui.vercel.app",
+                description: "A React UI library",
+                status: "dev"
+            },
+            {
+                name: "Contentlayer",
+                url: "https://contentlayer.dev/",
+                description: "A Next.js plugin for creating and rendering MDX-based content in a fully typed, customizable way",
+                status: "offline"
+            }
+        ]
+    }
 }
 
 export default siteData

@@ -1,3 +1,5 @@
+import HomeDescription from "@/components/home-description";
+
 const siteData: any = {
     //全局配置
     author: "yuanli", //作者
@@ -33,28 +35,24 @@ const siteData: any = {
         githubRepo: 'https://github.com/imyuanli', // 你当前这个博客项目的仓库地址
     },
 
-    //home 社交链接
-    socials: {
-        email: "2865437316@qq.com",
-        github: "https://github.com",
-        twitter: "https://twitter.com",
-        facebook: "https://facebook.com",
-        youtube: "",
-        linkedin: "",
-        instagram: "",
-        weibo: "",
-        zhihu: "",
-        qq: "",
-        wechat: "/9475164768e3659a328c4852f29f06d.jpg", //填入二维码图片地址
-    },
-
-    //blog config
-    projects: [
-        {
-            name: "Next.js",
-            url: "https://nextjs.org",
-            description: "The React Framework for Production",
-            status: ""
+    //home config
+    home: {
+        title: "你好，我是 Next.js ShadcnUI Blog",
+        description: "这是一个基于 Next.js 和 Shadcn-ui 的博客模板，你可以在这里快速搭建一个博客，然后部署到 Vercel 上。",
+        intro: HomeDescription,  // 你的个人介绍，支持 HTML 标签，由于可能需要写一些样式，所以这里抽离成了一个组件
+        //社交账号，如果不需要某个社交账号，直接删除即可或留空
+        socials: {
+            email: "2865437316@qq.com",
+            github: "https://github.com",
+            twitter: "https://twitter.com",
+            facebook: "https://facebook.com",
+            youtube: "",
+            linkedin: "",
+            instagram: "",
+            weibo: "",
+            zhihu: "",
+            qq: "",
+            wechat: "/wechat.jpg", //填入二维码图片地址
         },
         {
             name: "Tailwind CSS",

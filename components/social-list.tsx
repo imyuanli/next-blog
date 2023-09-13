@@ -27,9 +27,9 @@ const iconList: any = {
 }
 
 const SocialList = () => {
-
+    const {home: {socials}} = siteData
     const getHref = (item: string) => {
-        const social = siteData.socials[item]
+        const social = socials[item]
         switch (item) {
             case 'email':
                 return `mailto:${social}`
@@ -39,11 +39,10 @@ const SocialList = () => {
                 return social
         }
     }
-
     return (
         <div className={'flex items-center space-x-4'}>
-            {Object.keys(siteData.socials).map((item) => {
-                const social = siteData.socials[item]
+            {Object.keys(socials).map((item) => {
+                const social = socials[item]
                 if (social) {
                     return (
                         <>

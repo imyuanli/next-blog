@@ -14,25 +14,35 @@ import {
 } from "@/components/ui/sheet";
 import {Select, SelectContent, SelectItem, SelectTrigger} from "@/components/ui/select";
 import {useTheme} from "next-themes";
+import Image from "next/image";
 
 const Header = () => {
+    const {header: {logo, title, navList, githubRepo}} = siteData
 
     //高亮导航栏
     const pathname = usePathname()
-    const active = siteData.navItems.find((item: any) => item.value == pathname)?.name
+    const active = navList.find((item: any) => item.value == pathname)?.name
 
     return (
         <header className={'flex justify-between items-center py-8 h-24'}>
             {/*logo*/}
-            <Link href={'/'}>
-                {siteData.title}
+            <Link href={'/'} className={'flex justify-center items-center space-x-2'}>
+                <Image
+                    src={logo}
+                    height={24}
+                    width={24}
+                    alt={'logo'}
+                />
+                <div>
+                    {title}
+                </div>
             </Link>
 
             {/*桌面端*/}
             <div className={'h-full sm:block hidden transition duration-200'}>
                 <nav className={'space-x-2 flex justify-center items-center h-full'}>
                     <div className={'space-x-4 mr-1 flex'}>
-                        {siteData.navItems.map((item: any) => {
+                        {navList.map((item: any) => {
                             return (
                                 <Link href={item?.value}
                                       className={`whitespace-nowrap text-sm hover:text-slate-400 ${active == item.name ? 'font-bold' : ''}`}>
@@ -41,7 +51,7 @@ const Header = () => {
                             )
                         })}
                     </div>
-                    <Link href={'/about'}>
+                    <Link href={githubRepo}>
                         <Button size={'icon'} variant={'ghost'}>
                             <Icon icon={LuGithub}/>
                         </Button>
@@ -60,19 +70,19 @@ const Header = () => {
                     </SheetTrigger>
                     <SheetContent side={'top'} className={'w-full'}>
                         <div className={'space-y-4 px-12 py-8 text-sm'}>
-                            {siteData.navItems.map((item: any, index: number) => {
+                            {navList.map((item: any, index: number) => {
                                 return (
                                     <div className={'space-y-4'}>
                                         <Link href={item.value}
                                               className={active == item.name ? 'font-bold' : ''}>
                                             {item.name}
                                         </Link>
-                                        {index < siteData.navItems.length && <Separator/>}
+                                        {index < navList.length && <Separator/>}
                                     </div>
                                 )
                             })}
                             <div className={'space-y-4'}>
-                                <Link href={'/about'}>
+                                <Link href={githubRepo}>
                                     Github
                                 </Link>
                                 <Separator/>

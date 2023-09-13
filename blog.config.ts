@@ -1,26 +1,37 @@
 const siteData: any = {
-    author: "yuanli", //网站作者
+    //全局配置
+    author: "yuanli", //作者
+
+    //如何更换网站的favicon呢？
+    //https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons
+    // favicon: "/favicon.ico", 这个配置是不生效的，最简单的办法是替换 app/favicon.ico 文件即可，其余方式请参考上面的文档
+
     title: "Next.js ShadcnUI Blog", //网站的标题
     description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css", //网站的描述
-    logo: "/vercel.svg", //网站的图标
-    language: "zh-CN", //网站默认的语言 zh-CN | en-US
-    theme: "system", //网站的主题 light | dark | system
-    siteUrl: "https://shadcn-blog.vercel.app", //网站的地址
-    repo: ' https://github.com/timlrx/tailwind-nextjs-starter-blog', //github仓库地址
+    theme: "light", //网站的主题 light | dark | system
+    language: "zh-CN", //网站的语言，这个会影响到一些 SEO 的配置，具体请参考 https://nextjs.org/docs/advanced-features/i18n-routing
 
-    //nav config
-    navTitle: "Aurora Blog",
-    navDescribe: "Front-end Engineer",
-    navItems: [
-        {
-            name: '博客',
-            value: '/blog'
-        },
-        {
-            name: '项目',
-            value: '/projects'
-        }
-    ],
+    //以下配置有个共同点就是 description 字段，这个字段可以为空
+    //header config
+    header: {
+        logo: "/logo.png", //图标在public文件夹里
+        title: "Next.js ShadcnUI Blog",
+        navList: [
+            {
+                name: '项目',
+                value: '/projects'
+            },
+            {
+                name: '博客',
+                value: '/blog'
+            },
+            {
+                name: '标签',
+                value: '/tags'
+            },
+        ],
+        githubRepo: 'https://github.com/imyuanli', // 你当前这个博客项目的仓库地址
+    },
 
     //home 社交链接
     socials: {

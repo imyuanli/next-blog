@@ -33,31 +33,29 @@ const Projects = () => {
     return (
         <>
             <Title title={title} description={description}/>
-            <div className={'space-y-8'}>
-                {list.map((item: any, index: number): any => {
-                    const {variant, text}: any = getStatus(item.status)
-                    return (
-                        <Link
-                            className={'block space-y-1 group relative'}
-                            key={index}
-                            href={item.url}
-                        >
-                            <div className={'absolute -inset-y-4 -inset-x-4 z-0 scale-95 bg-zinc-100 sm:rounded-md opacity-0 transition group-hover:scale-100 group-hover:opacity-100'}></div>
-                            <div className={'relative flex items-center space-x-2'}>
-                                <div className={'underline underline-offset-4'}>
-                                    {item.name}
-                                </div>
-                                {item.status && (
-                                    <Badge variant={variant}>
-                                        {text}
-                                    </Badge>
-                                )}
+            {list.map((item: any, index: number): any => {
+                const {variant, text}: any = getStatus(item.status)
+                return (
+                    <Link
+                        className={'block space-y-1 group relative'}
+                        key={index}
+                        href={item.url}
+                    >
+                        <div className={'absolute -inset-y-4 -inset-x-4 z-0 scale-95 bg-zinc-100 sm:rounded-md opacity-0 transition group-hover:scale-100 group-hover:opacity-100'}></div>
+                        <div className={'relative flex items-center space-x-2'}>
+                            <div className={'underline underline-offset-4'}>
+                                {item.name}
                             </div>
-                            <div className={'relative text-sm text-zinc-600'}>{item.description}</div>
-                        </Link>
-                    )
-                })}
-            </div>
+                            {item.status && (
+                                <Badge variant={variant}>
+                                    {text}
+                                </Badge>
+                            )}
+                        </div>
+                        <div className={'relative text-sm text-zinc-600'}>{item.description}</div>
+                    </Link>
+                )
+            })}
         </>
     );
 }

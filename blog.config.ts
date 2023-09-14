@@ -26,11 +26,7 @@ const siteData: any = {
             {
                 name: '博客',
                 value: '/blog'
-            },
-            {
-                name: '标签',
-                value: '/tags'
-            },
+            }
         ],
         githubRepo: 'https://github.com/imyuanli', // 你当前这个博客项目的仓库地址
     },
@@ -56,6 +52,7 @@ const siteData: any = {
         },
     },
 
+    //projects config
     projects: {
         title: "作品",
         description: "下面展示的项目仅供参考，并非真实的状态",// || null

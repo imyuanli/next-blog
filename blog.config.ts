@@ -82,6 +82,12 @@ const siteData: any = {
                 status: "offline"
             }
         ]
+    },
+
+    //blog config
+    blog: {
+        title: "博客",
+        description: "这里是博客的描述，你可以在这里写一些博客的简介",
     }
 }
 

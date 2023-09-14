@@ -21,6 +21,14 @@ module.exports = {
             },
         },
         extend: {
+            typography: ({theme}: any) => ({
+                invert: {
+                    css: {
+                        '--tw-prose-invert-pre-code': theme('#1E293B'),
+                        '--tw-prose-invert-pre-bg': '#1E293B',
+                    },
+                },
+            }),
             colors: {
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",

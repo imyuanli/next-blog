@@ -2,6 +2,9 @@ import {useMDXComponent} from 'next-contentlayer/hooks'
 import {allPosts} from 'contentlayer/generated'
 import {getPost} from "@/lib/utils";
 import {notFound} from "next/navigation";
+import Time from "@/components/time";
+import React from "react";
+import DrawBack from "@/components/draw-back";
 
 export const generateMetadata = ({params}: any) => {
     const {title, description}: any = getPost(params?.slug)
@@ -18,12 +21,19 @@ export default function Post({params}: any) {
 
     if (!post) notFound()
 
-    const MDXContent = useMDXComponent(post.body.code)
-
+    const {title, date, body, readingTime}: any = post
+    const MDXContent = useMDXComponent(body.code)
     return (
-        <article className={'prose prose-Stone dark:prose-invert prose-headings:font-title font-default max-w-full'}>
-            <MDXContent/>
-        </article>
+        <div className={'relative'}>
+            <DrawBack/>
+            <article className={'prose prose-slate dark:prose-invert max-w-none'}>
+                <div className={'mb-2 text-sm text-zinc-400'}>
+                    <Time date={date}/> · {readingTime.words} words · {readingTime.text}
+                </div>
+                <h1>{title}</h1>
+                <MDXContent/>
+            </article>
+        </div>
     )
 }
 

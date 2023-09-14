@@ -1,6 +1,23 @@
 {
   "name": "nextjs-shadcnui-blog",
-  "version": "0.1.0",
+  "version": "0.2.0",
+  "author": "yuanli",
+  "description": "A Next.js starter for Shadcn's blog",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imyuanli/nextjs-shadcnui-blog.git"
+  },
+  "keywords": [
+    "nextjs",
+    "react",
+    "nextjs-blog",
+    "mdx",
+    "blog",
+    "nextjs-blog-template",
+    "shadcn",
+    "shadcn-blog",
+    "tailwindcss"
+  ],
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -37,5 +54,6 @@
     "tailwindcss": "3.3.3",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "5.2.2"
-  }
+  },
+  "license": "MIT"
 }

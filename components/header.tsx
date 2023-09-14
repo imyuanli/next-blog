@@ -21,7 +21,7 @@ const Header = () => {
 
     //高亮导航栏
     const pathname = usePathname()
-    const active = navList.find((item: any) => item.value == pathname)?.name
+    const active = navList.find((item: any) => item.value == '/' + pathname.split('/')[1])?.name
 
     return (
         <header className={'flex justify-between items-center py-8 h-24'}>

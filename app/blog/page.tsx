@@ -5,7 +5,6 @@ import React from "react";
 import siteData from "@/blog.config";
 import {Badge} from "@/components/ui/badge";
 import {Separator} from "@/components/ui/separator";
-import dayjs from "dayjs";
 import Time from "@/components/time";
 
 export default function Blog() {

@@ -15,6 +15,7 @@ import {
 import {Select, SelectContent, SelectItem, SelectTrigger} from "@/components/ui/select";
 import {useTheme} from "next-themes";
 import Image from "next/image";
+import {useState} from "react";
 
 const Header = () => {
     const {header: {logo, title, navList, githubRepo}} = siteData
@@ -22,6 +23,8 @@ const Header = () => {
     //高亮导航栏
     const pathname = usePathname()
     const active = navList.find((item: any) => item.value == '/' + pathname.split('/')[1])?.name
+
+    const [open, setOpen] = useState(false)
 
     return (
         <header className={'flex justify-between items-center py-8 h-24'}>
@@ -62,7 +65,9 @@ const Header = () => {
 
             {/*移动端*/}
             <div className={'sm:hidden block'}>
-                <Sheet>
+                <Sheet open={open} onOpenChange={() => {
+                    setOpen(!open)
+                }}>
                     <SheetTrigger>
                         <Button size={'icon'} variant={'ghost'}>
                             <Icon icon={LuMenu}/>
@@ -72,7 +77,9 @@ const Header = () => {
                         <div className={'space-y-4 px-12 py-8 text-sm'}>
                             {navList.map((item: any, index: number) => {
                                 return (
-                                    <div className={'space-y-4'}>
+                                    <div className={'space-y-4'} onClick={() => {
+                                        setOpen(false)
+                                    }}>
                                         <Link href={item.value}
                                               className={active == item.name ? 'font-bold' : ''}>
                                             {item.name}

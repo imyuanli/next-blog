@@ -20,7 +20,7 @@
   ],
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev && contentlayer dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

@@ -1,4 +1,4 @@
-import HomeDescription from "@/components/home-description";
+import IntroduceYourself from "@/components/introduce-yourself";
 
 const siteData: any = {
     //全局配置
@@ -35,7 +35,7 @@ const siteData: any = {
     home: {
         title: "你好，我是 Next.js ShadcnUI Blog",
         description: "这是一个基于 Next.js 和 Shadcn-ui 的博客模板，你可以在这里快速搭建一个博客，然后部署到 Vercel 上。",
-        intro: HomeDescription,  // 你的个人介绍，支持 HTML 标签，由于可能需要写一些样式，所以这里抽离成了一个组件
+        intro: IntroduceYourself,  // 你的个人介绍，支持 HTML 标签，由于可能需要写一些样式，所以这里抽离成了一个组件
         //社交账号，如果不需要某个社交账号，直接删除即可或留空
         socials: {
             email: "2865437316@qq.com",

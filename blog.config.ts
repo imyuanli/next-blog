@@ -8,7 +8,7 @@ const siteData: any = {
     //https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons
     // favicon: "/favicon.ico", 这个配置是不生效的，最简单的办法是替换 app/favicon.ico 文件即可，其余方式请参考上面的文档
 
-    title: "Next.js ShadcnUI Blog", //网站的标题
+    title: "Next Blog", //会显示在浏览器的标题栏
     description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css", //网站的描述
     theme: "light", //网站的主题 light | dark | system
     language: "zh-CN", //网站的语言，这个会影响到一些 SEO 的配置，具体请参考 https://nextjs.org/docs/advanced-features/i18n-routing
@@ -17,7 +17,7 @@ const siteData: any = {
     //header config
     header: {
         logo: "/logo.png", //图标在public文件夹里
-        title: "Next.js ShadcnUI Blog",
+        title: "Next Blog", // header部分的标题
         navList: [
             {
                 name: '项目',
@@ -27,19 +27,19 @@ const siteData: any = {
                 name: '博客',
                 value: '/blog'
             }
-        ],
-        githubRepo: 'https://github.com/imyuanli', // 你当前这个博客项目的仓库地址
+        ], // 导航栏的链接
+        githubRepo: 'https://github.com/imyuanli/next-blog', // 你当前这个博客项目的仓库地址
     },
 
     //home config
     home: {
-        title: "你好，我是 Next.js ShadcnUI Blog",
+        title: "你好，我是 Next Blog", //首页的标题
         description: "这是一个基于 Next.js 和 Shadcn-ui 的博客模板，你可以在这里快速搭建一个博客，然后部署到 Vercel 上。",
         intro: IntroduceYourself,  // 你的个人介绍，支持 HTML 标签，由于可能需要写一些样式，所以这里抽离成了一个组件
         //社交账号，如果不需要某个社交账号，直接删除即可或留空
         socials: {
             email: "2865437316@qq.com",
-            github: "https://github.com",
+            github: "https://github.com/imyuanli",
             twitter: "https://twitter.com",
             facebook: "https://facebook.com",
             youtube: "",
@@ -48,7 +48,7 @@ const siteData: any = {
             weibo: "",
             zhihu: "",
             qq: "",
-            wechat: "/wechat.jpg", //填入二维码图片地址
+            wechat: "/wechat.jpg", //微信公众号图片地址，public文件夹
         },
     },
 
@@ -57,6 +57,8 @@ const siteData: any = {
         title: "作品",
         description: "下面展示的项目仅供参考，并非真实的状态",// || null
         //有多种状态 稳定运行 running | 维护中 bug | 开发中 dev | 不再维护 offline
+        // running状态可以不填写status
+        //当然 你也可以不填写status字段，这样就不会显示状态了
         list: [
             {
                 name: "Next.js",

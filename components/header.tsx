@@ -32,8 +32,8 @@ const Header = () => {
             <Link href={'/'} className={'flex justify-center items-center space-x-2'}>
                 <Image
                     src={logo}
-                    height={24}
-                    width={24}
+                    height={28}
+                    width={28}
                     alt={'logo'}
                 />
                 <div>

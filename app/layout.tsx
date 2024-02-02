@@ -1,8 +1,9 @@
 import './globals.css'
 import type {Metadata} from 'next'
-import ThemeProvider from "@/components/theme-provider";
 import siteData from "@/blog.config";
 import Header from "@/components/header";
+import ProviderTheme from "@/provider/provider-theme";
+import {Separator} from "@/components/ui/separator";
 
 export const metadata: Metadata = {
     title: siteData.title,
@@ -13,14 +14,13 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
     return (
         <html lang="en">
         <body className={'min-h-screen font-sans antialiased text-primary'}>
-        <ThemeProvider>
-            <div className={'container'}>
-                <Header/>
-                <main className={'my-4 space-y-8'}>
-                    {children}
-                </main>
-            </div>
-        </ThemeProvider>
+        <ProviderTheme>
+            <Header/>
+            <Separator/>
+            <main className={'my-4 space-y-4'}>
+                {children}
+            </main>
+        </ProviderTheme>
         </body>
         </html>
     )

@@ -17,7 +17,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
         <ProviderTheme>
             <Header/>
             <Separator/>
-            <main className={'my-4 space-y-4'}>
+            <main className={'container my-8 space-y-6'}>
                 {children}
             </main>
         </ProviderTheme>

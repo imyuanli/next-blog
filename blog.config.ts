@@ -1,11 +1,12 @@
-// Purpose: This file is used to configure the blog, including the author, title, description, and other settings.
+import Intro from "@/app/components/intro";
 
+// Purpose: This file is used to configure the blog, including the author, title, description, and other settings.
 const siteData: any = {
-    author: "yuanli", //作者
-    title: "Next Blog", //会显示在浏览器的标题栏
-    description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css", //网站的描述
+    author: "yuanli", // author
+    title: "Next Blog", // will be displayed in the browser's title bar
+    description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css", // website description
     theme: "light", // light | dark
-    language: "zh-CN", //网站的语言，这个会影响到一些 SEO 的配置，具体请参考 https://nextjs.org/docs/advanced-features/i18n-routing
+    language: "zh-CN", // website language, which will affect some SEO configurations, please refer to https://nextjs.org/docs/advanced-features/i18n-routing
 
     // how to change the favicon of the website?
     // change the app/favicon.ico file directly，or refer to the document below
@@ -15,7 +16,6 @@ const siteData: any = {
     header: {
         logo: "/logo.png",  //  /public/logo.png
         title: "Next Blog", // header title
-
         // navigation bar
         routes: [
             {
@@ -35,9 +35,34 @@ const siteData: any = {
                 value: '/about'
             }
         ],
-        githubRepo: ''
+        githubRepo: 'https://github.com/imyuanli/next-blog', // your blog project repository
     },
 
+    // tips: all descriptions can be empty
+    //home config
+    home: {
+        title: "Hello, I'm Next Blog", //home title
+        description: "This is a blog template based on Next.js and Shadcn-ui. You can quickly build a blog here and deploy it to Vercel.", //home description
+
+        // introduction
+        // you can use HTML tags here, and it's extracted into a component because you may need to write some styles
+        intro: Intro,
+
+        // tips: if you don't need some social accounts, just delete or leave it empty
+        socials: {
+            email: "2865437316@qq.com",
+            github: "https://github.com/imyuanli",
+            twitter: "https://twitter.com",
+            facebook: "https://facebook.com",
+            youtube: "https://youtube.com",
+            linkedin: "https://linkedin.com",
+            instagram: "https://instagram.com",
+            weibo: "",
+            zhihu: "",
+            qq: "", // QQ number
+            wechat: "/wechat.jpg", // WeChat official account image address, public folder
+        },
+    },
 
     // //全局配置
     // author: "yuanli", //作者

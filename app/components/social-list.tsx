@@ -53,7 +53,7 @@ const SocialList = () => {
                                 <QrWechat href={social}/>
                                 :
                                 <a href={getHref(item)} target={'_blank'}>
-                                    <Icon icon={iconList[item]} size={20}/>
+                                    <Icon icon={iconList[item]}/>
                                 </a>
                             }
                         </>
@@ -68,7 +68,7 @@ const QrWechat = ({href}: { href: string }) => {
     return (
         <HoverCard>
             <HoverCardTrigger className={'cursor-pointer'}>
-                <Icon icon={AiOutlineWechat} size={20}/>
+                <Icon icon={AiOutlineWechat}/>
             </HoverCardTrigger>
             <HoverCardContent>
                 <Image

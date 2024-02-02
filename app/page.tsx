@@ -1,10 +1,11 @@
 import React from 'react'
 import Title from "@/components/title";
-import SocialList from "@/components/social-list";
 import siteData from "@/blog.config";
+import SocialList from "@/app/components/social-list";
 
 export default function Home() {
     const {home: {title, description, intro}} = siteData
+
     return (
         <>
             <Title title={title} description={description}/>

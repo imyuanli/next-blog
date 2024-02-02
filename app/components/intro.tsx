@@ -3,42 +3,47 @@
 import Link from "next/link";
 import {Badge} from "@/components/ui/badge";
 import siteData from "@/blog.config";
+import {Button} from "@/components/ui/button";
 
 const Intro = () => {
-    const {header:{githubRepo}} = siteData
+    const {header: {githubRepo}} = siteData
+
     return (
         <>
             <div>
-                我是一个拥有极简 UI 的 BLOG 模板 🥰。
-                <span className={'font-bold'}>
-                    Simple, but better! 🤩
+                I'm a BLOG template with minimal UI 🥰. <span className={'font-bold'}>
+                    Simple, but better ! 🤩
                 </span>
             </div>
             <div>
-                由<Link href={'https://nextjs.org/'} className={'cursor-alias mx-1'}>
+                Powered by <Link href={'https://nextjs.org/'} className={'cursor-alias'}>
                 <Badge>NEXT.js</Badge>
-            </Link>驱动，
-                <Link href={'https://ui.shadcn.com/'} className={'cursor-alias mx-1'}>
-                    <Badge>shadcn-ui</Badge>
-                </Link>作为主题，
-                <Link href={'https://www.tailwindcss.cn/'} className={'cursor-alias mx-1'}>
-                    <Badge>Tailwindcss</Badge>
-                </Link>为辅助开发的一个极简的博客模板。
+            </Link> , <Link href={'https://ui.shadcn.com/'} className={'cursor-alias'}>
+                <Badge>shadcn-ui</Badge>
+            </Link> as the theme , <Link href={'https://www.tailwindcss.cn/'} className={'cursor-alias'}>
+                <Badge>Tailwindcss</Badge>
+            </Link> as an auxiliary development of a minimalist blog template.
             </div>
             <div>
-                无需使用数据库，只需要简单配置即可使用。一分钟就足够拥有你的博客！😊
+                No need to use a database, just simple configuration to use. One minute is enough to have your blog! 😊
             </div>
             <div>
-                如果你喜欢这个模板，可以给我一个⭐哦！<Link href={githubRepo} className={'border-b-4 border-dashed'}>GitHub</Link>
+                On the basis of the original, I have made some improvements and adjustments, and I hope you like it. 🥳
+                <Button>
+                    查看配置文件
+                </Button>
             </div>
-            <div className={'flex flex-wrap space-x-2'}>
-                <div>
-                    如果你想了解更多👉
-                </div>
-                <Link href={'imyuanli.cn'} className={'border-b-2 border-dashed'}>
-                    鸢离
-                </Link>
+            <div>
+                You can use vercel or netlify to deploy your blog, and you can also use the GitHub action to deploy your blog. 🚀
+
+                <Button>
+
+                </Button>
             </div>
+            <div>
+                If you like it, please give me a 🌟 on <Link href={githubRepo} className={'border-b-4 border-dashed'}>GitHub</Link> !
+            </div>
+
         </>
     );
 }

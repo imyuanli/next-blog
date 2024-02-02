@@ -4,8 +4,7 @@ import Link from "next/link";
 import {Badge} from "@/components/ui/badge";
 import siteData from "@/blog.config";
 
-
-const IntroduceYourself = () => {
+const Intro = () => {
     const {header:{githubRepo}} = siteData
     return (
         <>
@@ -44,4 +43,4 @@ const IntroduceYourself = () => {
     );
 }
 
-export default IntroduceYourself
+export default Intro

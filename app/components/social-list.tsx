@@ -1,7 +1,6 @@
 'use client';
 
 import siteData from "@/blog.config";
-import QrWechat from "@/components/qr-wechat";
 import Icon from "@/components/icon";
 import React from "react";
 
@@ -9,9 +8,12 @@ import {
     AiOutlineFacebook,
     AiOutlineGithub, AiOutlineInstagram,
     AiOutlineLinkedin, AiOutlineMail, AiOutlineQq,
-    AiOutlineTwitter, AiOutlineWeibo,
+    AiOutlineTwitter, AiOutlineWechat, AiOutlineWeibo,
     AiOutlineYoutube, AiOutlineZhihu
 } from "react-icons/ai";
+import {HoverCard, HoverCardTrigger} from "@radix-ui/react-hover-card";
+import {HoverCardContent} from "@/components/ui/hover-card";
+import Image from "next/image";
 
 const iconList: any = {
     github: AiOutlineGithub,
@@ -39,6 +41,7 @@ const SocialList = () => {
                 return social
         }
     }
+
     return (
         <div className={'flex items-center space-x-4'}>
             {Object.keys(socials).map((item) => {
@@ -59,6 +62,26 @@ const SocialList = () => {
             })}
         </div>
     )
+}
+
+const QrWechat = ({href}: { href: string }) => {
+    return (
+        <HoverCard>
+            <HoverCardTrigger className={'cursor-pointer'}>
+                <Icon icon={AiOutlineWechat} size={20}/>
+            </HoverCardTrigger>
+            <HoverCardContent>
+                <Image
+                    src={href}
+                    loading="lazy"
+                    width={300}
+                    height={150}
+                    alt="wechat"
+                    style={{objectFit: "cover"}}
+                />
+            </HoverCardContent>
+        </HoverCard>
+    );
 }
 
 export default SocialList

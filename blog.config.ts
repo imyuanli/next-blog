@@ -47,6 +47,11 @@ const siteData: any = {
         },
     },
 
+    blog: {
+        title: 'My Blog',
+        description: 'All of my long-form thoughts on programming, product design, and more, collected in chronological order.'
+    },
+
     projects: [
         {
             name: "NextBlog",

@@ -19,11 +19,11 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-        <body className={'min-h-screen font-mono antialiased text-primary'}>
+        <body className={'min-h-screen'}>
         <Header/>
         <Separator/>
         <main className={'container my-12 space-y-8'}>
-            <div className={'prose md:prose-lg'}>
+            <div className={'prose md:prose-lg min-w-full w-full'}>
                 {children}
             </div>
         </main>

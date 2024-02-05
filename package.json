@@ -18,6 +18,8 @@
     "@types/mdx": "^2.0.11",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "dayjs": "^1.11.10",
+    "gray-matter": "^4.0.3",
     "lucide-react": "^0.321.0",
     "next": "14.1.0",
     "react": "^18",

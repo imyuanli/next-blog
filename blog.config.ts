@@ -46,8 +46,47 @@ const siteData: any = {
         facebook: "",
         instagram: "",
         youtube: "",
-    }
+    },
 
+    projects: [
+        {
+            name: "NextBlog",
+            description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
+            link: "https://next-blog-imyuanli.vercel.app/",
+            status: "active",
+        },
+        {
+            name: "NextBlog",
+            description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
+            link: "https://next-blog-imyuanli.vercel.app/",
+            status: "active",
+        },
+    ],
+    // status color and text
+    getStatus: (status: string) => {
+        switch (status) {
+            case 'bug':
+                return {
+                    variant: 'destructive',
+                    text: '维护中'
+                }
+            case 'dev':
+                return {
+                    variant: 'default',
+                    text: '开发中'
+                }
+            case 'offline':
+                return {
+                    variant: 'secondary',
+                    text: '不再维护'
+                }
+            default:
+                return {
+                    variant: 'default',
+                    text: '开发中'
+                }
+        }
+    },
 }
 
 export default siteData

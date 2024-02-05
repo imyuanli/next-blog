@@ -38,6 +38,16 @@ const siteData: any = {
         ]
     },
 
+    socials: {
+        email: "286547316@qq.com",
+        github: "https://github.com/imyuanli",
+        twitter: "https://twitter.com",
+        linkedin: "",
+        facebook: "",
+        instagram: "",
+        youtube: "",
+    }
+
 }
 
 export default siteData

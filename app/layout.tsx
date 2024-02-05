@@ -22,8 +22,10 @@ export default function RootLayout({
         <body className={'min-h-screen font-mono antialiased text-primary'}>
         <Header/>
         <Separator/>
-        <main className={'my-4 space-y-4'}>
-            {children}
+        <main className={'container my-12 space-y-8'}>
+            <div className={'prose md:prose-lg'}>
+                {children}
+            </div>
         </main>
         </body>
         </html>

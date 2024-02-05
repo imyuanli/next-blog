@@ -12,7 +12,8 @@ import {
 import Image from "next/image";
 import {useState} from "react";
 import {Separator} from "@/components/ui/separator";
-import {Github, Menu} from "lucide-react";
+import {Github, Menu, Moon, Sun} from "lucide-react";
+import {useTheme} from "next-themes";
 
 const Header = () => {
     const {githubRepo, header: {logo, title, routes}} = siteData
@@ -21,6 +22,7 @@ const Header = () => {
     const pathname = usePathname()
     const active = routes.find((item: any) => item.value == '/' + pathname.split('/')[1])?.name
 
+    const {theme, setTheme} = useTheme()
     const [open, setOpen] = useState(false)
 
     return (
@@ -78,6 +80,16 @@ const Header = () => {
                         <Github size={20}/>
                     </Button>
                 </Link>
+                <Button
+                    size={'icon'}
+                    variant={'ghost'}
+                    onClick={() => {
+                        setTheme(theme == 'light' ? 'dark' : 'light')
+                    }}
+                >
+                    {theme == 'light' && <Sun size={20}/>}
+                    {theme == 'dark' && <Moon size={20}/>}
+                </Button>
             </div>
         </header>
     );

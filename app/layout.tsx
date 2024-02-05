@@ -4,6 +4,7 @@ import "./globals.css";
 import {Separator} from "@/components/ui/separator";
 import Header from "@/components/header";
 import siteData from "@/blog.config";
+import ProviderTheme from "@/provider/provider-theme";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -20,13 +21,15 @@ export default function RootLayout({
     return (
         <html lang="en">
         <body className={'min-h-screen'}>
-        <Header/>
-        <Separator/>
-        <main className={'container my-12 space-y-8'}>
-            <div className={'prose md:prose-lg min-w-full w-full'}>
-                {children}
-            </div>
-        </main>
+        <ProviderTheme>
+            <Header/>
+            <Separator/>
+            <main className={'container my-12 space-y-8'}>
+                <div className={'prose md:prose-lg min-w-full w-full dark:prose-invert'}>
+                    {children}
+                </div>
+            </main>
+        </ProviderTheme>
         </body>
         </html>
     );

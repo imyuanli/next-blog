@@ -23,6 +23,7 @@
     "lucide-react": "^0.321.0",
     "next": "14.1.0",
     "next-mdx-remote": "^4.4.1",
+    "next-themes": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",
     "reading-time": "^1.5.0",

@@ -8,7 +8,7 @@ dayjs.extend(localizedFormat)
 const Time = ({date}: any) => {
 
     return (
-        <time className={'text-sm text-zinc-500'}>
+        <time>
             {dayjs(date).format('MMMM D, YYYY')}
         </time>
     );

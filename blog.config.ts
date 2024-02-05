@@ -1,4 +1,5 @@
 // Purpose: This file is used to configure the blog, including the author, title, description, and other settings.
+import Intro from "./app/intro.mdx"
 
 const siteData: any = {
     author: "yuanli",  // author name
@@ -24,28 +25,26 @@ const siteData: any = {
                 value: '/blog'
             },
             {
-                name: 'Tags',
-                value: '/tags'
-            },
-            {
                 name: 'Projects',
                 value: '/projects'
-            },
-            {
-                name: 'About',
-                value: '/about'
             }
         ]
     },
 
-    socials: {
-        email: "286547316@qq.com",
-        github: "https://github.com/imyuanli",
-        twitter: "https://twitter.com",
-        linkedin: "",
-        facebook: "",
-        instagram: "",
-        youtube: "",
+    home: {
+        title: "Welcome to NextBlog",
+
+        // introduction or about me
+        intro: Intro, // file path of the introduction
+        socials: {
+            email: "286547316@qq.com",
+            github: "https://github.com/imyuanli",
+            twitter: "https://twitter.com",
+            linkedin: "",
+            facebook: "",
+            instagram: "",
+            youtube: "",
+        },
     },
 
     projects: [

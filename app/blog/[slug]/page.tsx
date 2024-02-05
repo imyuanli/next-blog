@@ -1,9 +1,29 @@
 import {notFound} from "next/navigation";
 import {MDXRemote} from "next-mdx-remote/rsc";
 import {Suspense} from "react";
-import {getPostsData} from "@/app/blog/components/blog-section";
 import DrawBack from "@/app/blog/components/draw-back";
 import Time from "@/app/blog/components/time";
+import path from "path";
+import fs from "fs";
+import matter from "gray-matter";
+import readingTime from "reading-time";
+
+const getPostsData = () => {
+    const postsDirectory = path.join(process.cwd(), 'posts')
+    const fileNames = fs.readdirSync(postsDirectory)
+    return fileNames.map((fileName: any) => {
+        const id = fileName.replace(/\.md$/, '')
+        const fullPath = path.join(postsDirectory, fileName)
+        const fileContents = fs.readFileSync(fullPath, 'utf8')
+        const matterResult = matter(fileContents)
+        return {
+            id,
+            ...matterResult.data,
+            content: matterResult.content,
+            stats: readingTime(matterResult.content)
+        }
+    })
+}
 
 export async function generateStaticParams() {
     const posts = getPostsData()

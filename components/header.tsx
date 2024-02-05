@@ -40,7 +40,7 @@ const Header = () => {
                 <div className={'hidden md:block space-x-1'}>
                     {routes.map((route: any) => (
                         <Link href={route?.value}>
-                            <Button variant={active ? 'secondary' : 'ghost'} className={'text-base'}>
+                            <Button variant={active == route.name ? 'secondary' : 'ghost'} className={'text-base'}>
                                 {route.name}
                             </Button>
                         </Link>

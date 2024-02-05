@@ -35,29 +35,32 @@ const BlogSection = () => {
             <Separator/>
             <div className={'space-y-4 relative'}>
                 {posts.map((post: any, index: number) => (
-                    !post?.draft && <Card className={'col-span-1 border-none'} key={index}>
-                      <CardHeader className={'pl-0'}>
-                        <Time date={post.time}/>
-                        <CardTitle>{post.title}</CardTitle>
-                        <div className={'space-x-1'}>
-                            {post.tags.map((tag: string, index: number) => (
-                                <Badge key={index} variant={'secondary'}>
-                                    {tag}
-                                </Badge>
-                            ))}
-                        </div>
-                      </CardHeader>
-                      <CardContent className={'pl-0'}>
-                          {post.summary}
-                      </CardContent>
-                      <CardFooter className={'flex justify-end pl-0'}>
-                        <Link href={`/blog/${post.id}`}>
-                          <Button variant={'ghost'}>
-                            Read More <ArrowRight size={16} className={'ml-2'}/>
-                          </Button>
-                        </Link>
-                      </CardFooter>
-                    </Card>
+                    !post?.draft && <div>
+                      <Card className={'col-span-1 border-none shadow-none'} key={index}>
+                        <CardHeader className={'pl-0'}>
+                          <Time date={post.time}/>
+                          <CardTitle>{post.title}</CardTitle>
+                          <div className={'space-x-1'}>
+                              {post.tags.map((tag: string, index: number) => (
+                                  <Badge key={index} variant={'secondary'}>
+                                      {tag}
+                                  </Badge>
+                              ))}
+                          </div>
+                        </CardHeader>
+                        <CardContent className={'pl-0'}>
+                            {post.summary}
+                        </CardContent>
+                        <CardFooter className={'flex justify-end pl-0'}>
+                          <Link href={`/blog/${post.id}`}>
+                            <Button variant={'ghost'}>
+                              Read More <ArrowRight size={16} className={'ml-2'}/>
+                            </Button>
+                          </Link>
+                        </CardFooter>
+                      </Card>
+                        {index == posts.length - 1 ? null : <Separator/>}
+                    </div>
                 ))}
             </div>
         </>

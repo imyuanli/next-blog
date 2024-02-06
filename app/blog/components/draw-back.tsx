@@ -11,7 +11,7 @@ const DrawBack = () => {
     return (
         <>
             <div className={'sm:block hidden'}>
-                <div className={'sm:absolute -left-40 top-0 flex justify-center items-center'}>
+                <div className={'sm:absolute -left-40 top-12 flex justify-center items-center'}>
                     <Button variant={'ghost'} onClick={() => {
                         router.back()
                     }}>

@@ -24,7 +24,7 @@ export default function RootLayout({
         <ProviderTheme>
             <Header/>
             <Separator/>
-            <main className={'container'}>
+            <main className={'container my-12'}>
                 <div className={'prose md:prose-lg min-w-full w-full dark:prose-invert'}>
                     {children}
                 </div>

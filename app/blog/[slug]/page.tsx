@@ -51,7 +51,7 @@ export default function Post({params}: any) {
     if (!post || post?.draft) notFound()
 
     return (
-        <div className={'relative pt-12'}>
+        <div className={'relative'}>
             <article>
                 <DrawBack/>
                 <div className={'mb-3 text-base text-zinc-400'}>

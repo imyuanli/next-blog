@@ -49,51 +49,81 @@ const siteData: any = {
 
     blog: {
         title: 'My Blog',
-        description: 'All of my long-form thoughts on programming, product design, and more, collected in chronological order.'
+        description: 'All of my long-fesign, and more, collected in chronological order.'
     },
 
-    project:{
-        title: 'My Blog',
-        description: 'All of my long-form thoughts on programming, product design, and more, collected in chronological order.',
+    project: {
+        title: "Look what I've done",
+        description: "Some small tools made by oneself",
+
+        // name, description, link are required
+        // github: the address of the project's github repo
+        // status: active | inactive
+        // and so on
+        // you can add more fields according to your needs ,but you need to modify the code in the projects/page.tsx file
         projects: [
             {
                 name: "NextBlog",
                 description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
-                link: "https://next-blog-imyuanli.vercel.app/",
+                link: "https://imyuanli.vercel.app/",
                 status: "active",
             },
             {
                 name: "NextBlog",
                 description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
                 link: "https://next-blog-imyuanli.vercel.app/",
-                status: "active",
+                github: "https://github.com/imyuanli/next-blog",
+                status: "bug",
+            },
+            {
+                name: "NextBlog",
+                description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
+                link: "https://next-blog-imyuanli.vercel.app/",
+                status: "inactive",
+            },
+            {
+                name: "NextBlog",
+                description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
+                link: "https://next-blog-imyuanli.vercel.app/",
+                status: "dev",
             },
         ],
         // status color and text
         getStatus: (status: string) => {
             switch (status) {
-                case 'bug':
+                case "active":
                     return {
-                        variant: 'destructive',
-                        text: '维护中'
+                        variant: "default",
+                        text: "ACTIVE",
                     }
-                case 'dev':
+                case "inactive":
                     return {
-                        variant: 'default',
-                        text: '开发中'
+                        variant: "secondary",
+                        text: "INACTIVE",
                     }
-                case 'offline':
+                case "bug":
                     return {
-                        variant: 'secondary',
-                        text: '不再维护'
+                        variant: "destructive",
+                        text: "BUG",
+                    }
+                case "dev":
+                    return {
+                        variant: "outline",
+                        text: "DEV",
                     }
                 default:
                     return {
-                        variant: 'default',
-                        text: '开发中'
+                        variant: "default",
+                        text: "ACTIVE",
                     }
             }
         },
+
+        view: "list", // grid | list
+
+        target: "_blank", // _blank | _self | _parent | _top
+
+
     }
 }
 

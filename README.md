@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NextBlog
 
-## Getting Started
+A minimal, responsive, and easy-to-use blog template.
 
-First, run the development server:
+### Introduction
+
+NextBlog is **True simplicity rather than simplicity**✨, it is a minimal, responsive, and easy-to-use blog template ⚡.
+
+Simple and clean, it is designed to place the reader's attention on what really matters: the content.
+
+### Tech Stack
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [MDX](https://mdxjs.com/)
+- [Shadcn-ui](https://ui.shadcn.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+
+### How to use?
+
+NextBlog can be deployed with Vercel, with a single click.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/imyuanli/next-blog)
+
+Than you can clone the repository and run the following commands:
 
 ```bash
+git clone
+cd next-blog
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+You only need to modify the configuration file content and write articles.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- configuration file: `blog.config.ts`
+- article file: `posts/*.mdx`
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Features
 
-## Learn More
+- **Search**
+- **Comments**
+- **Mobile responsive**
+- **SEO friendly**
+- **Syntax highlighting**
+- **Tags**
+- **Pagination**
+- .....
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

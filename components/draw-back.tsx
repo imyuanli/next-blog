@@ -15,13 +15,13 @@ const DrawBack = () => {
                     <Button variant={'ghost'} onClick={() => {
                         router.back()
                     }}>
-                        <ArrowLeft size={16}/>
+                        <ArrowLeft size={20}/>
                         <span className={'ml-2'}>Go Back</span>
                     </Button>
                 </div>
             </div>
             <div
-                className={'md:hidden block mb-4'}
+                className={'md:hidden block mb-8'}
                 onClick={() => {
                     router.back()
                 }}

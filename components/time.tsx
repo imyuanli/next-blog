@@ -3,6 +3,7 @@
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 import dayjs from "dayjs";
 import 'dayjs/locale/zh-cn'
+
 dayjs.extend(localizedFormat)
 
 const Time = ({date}: any) => {

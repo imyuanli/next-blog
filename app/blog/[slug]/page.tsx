@@ -1,42 +1,16 @@
 import {notFound} from "next/navigation";
 import {MDXRemote} from "next-mdx-remote/rsc";
 import {Suspense} from "react";
-import DrawBack from "@/app/blog/components/draw-back";
-import Time from "@/app/blog/components/time";
-import path from "path";
-import fs from "fs";
-import matter from "gray-matter";
-import readingTime from "reading-time";
+import Time from "@/components/time";
+import {getPostsData} from "@/app/server-utils";
+import DrawBack from "@/components/draw-back";
 
-const getPostsData = () => {
-    const postsDirectory = path.join(process.cwd(), 'posts')
-    const fileNames = fs.readdirSync(postsDirectory)
-    return fileNames.map((fileName: any) => {
-        const id = fileName.replace(/\.md$/, '')
-        const fullPath = path.join(postsDirectory, fileName)
-        const fileContents = fs.readFileSync(fullPath, 'utf8')
-        const matterResult = matter(fileContents)
-        return {
-            id,
-            ...matterResult.data,
-            content: matterResult.content,
-            stats: readingTime(matterResult.content)
-        }
-    })
-}
-
+const getPost = (slug: string) => getPostsData().find((post: any) => post.id === slug)
 export async function generateStaticParams() {
-    const posts = getPostsData()
-    return posts.map((post) => ({
+    return getPostsData().map((post) => ({
         slug: post.id
     }))
 }
-
-const getPost = (slug: string) => {
-    const posts = getPostsData()
-    return posts.find((post: any) => post.id === slug)
-}
-
 export async function generateMetadata({params}: any) {
     const post: any = getPost(params.slug)
     return {
@@ -44,6 +18,7 @@ export async function generateMetadata({params}: any) {
         description: post.summary,
     }
 }
+
 
 export default function Post({params}: any) {
     const {slug} = params

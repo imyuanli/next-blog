@@ -8,22 +8,23 @@ import {useEffect, useState} from "react";
 
 const Title = () => {
     const pathname = usePathname()
-    let name = pathname.split('/')[1]
     const [state, setState] = useState<any>(null)
 
     useEffect(() => {
+        const nameArr = pathname.split('/')
+        const name = nameArr[nameArr.length - 1]
         if (name) {
             setState(siteData[name])
         } else {
             setState(siteData.home)
         }
-    }, [name]);
+    }, [pathname]);
 
     return (
-        <div>
-            <h1>{state?.title}</h1>
+        state && <div>
+          <h1>{state?.title}</h1>
             {state?.description && <p className={'text-zinc-600'}>{state?.description}</p>}
-            <Separator/>
+          <Separator/>
         </div>
     );
 }

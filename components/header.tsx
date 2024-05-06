@@ -65,7 +65,7 @@ const Header = () => {
                                     <Link href={route.value} onClick={() => {
                                         setOpen(false)
                                     }}>
-                                        <Button variant={active ? 'secondary' : 'ghost'} className={'text-base w-full'}>
+                                        <Button variant={active == route.name ? 'secondary' : 'ghost'} className={'text-base w-full'}>
                                             {route.name}
                                         </Button>
                                     </Link>

@@ -37,12 +37,13 @@ You only need to modify the configuration file content and write articles.
 
 ### Features
 
-- **Search**
-- **Comments**
-- **Mobile responsive**
-- **SEO friendly**
-- **Syntax highlighting**
-- **Tags**
-- **Pagination**
-- .....
+1. [x] **Mobile responsive** 
+2. [ ] **Comments**
+3. [ ] **Search**
+4. [x] **SEO friendly**
+5. [ ] **Syntax highlighting**
+6. [ ] **Tags**
+7. [ ] **Pagination**
+
+If you have any ideas, please let me know.
 

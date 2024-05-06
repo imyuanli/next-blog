@@ -19,7 +19,6 @@ export async function generateMetadata({params}: any) {
     }
 }
 
-
 export default function Post({params}: any) {
     const {slug} = params
     const post: any = getPost(slug)

@@ -65,29 +65,41 @@ const siteData: any = {
             {
                 name: "NextBlog",
                 description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
-                link: "https://imyuanli.vercel.app/",
+                href: "https://imyuanli.vercel.app/",
                 status: "active",
             },
             {
                 name: "NextBlog",
                 description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
-                link: "https://next-blog-imyuanli.vercel.app/",
+                href: "https://next-blog-imyuanli.vercel.app/",
                 github: "https://github.com/imyuanli/next-blog",
                 status: "bug",
             },
             {
                 name: "NextBlog",
                 description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
-                link: "https://next-blog-imyuanli.vercel.app/",
+                href: "https://next-blog-imyuanli.vercel.app/",
                 status: "inactive",
             },
             {
                 name: "NextBlog",
                 description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
-                link: "https://next-blog-imyuanli.vercel.app/",
+                href: "https://next-blog-imyuanli.vercel.app/",
                 status: "dev",
             },
+            {
+                name: "NextBlog",
+                description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
+                href: "https://next-blog-imyuanli.vercel.app/",
+            },
+            {
+                name: "NextBlog",
+                description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
+                href: "https://next-blog-imyuanli.vercel.app/",
+                github: "https://github.com/imyuanli/next-blog",
+            },
         ],
+
         // status color and text
         getStatus: (status: string) => {
             switch (status) {
@@ -118,12 +130,6 @@ const siteData: any = {
                     }
             }
         },
-
-        view: "list", // grid | list
-
-        target: "_blank", // _blank | _self | _parent | _top
-
-
     }
 }
 

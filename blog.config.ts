@@ -1,5 +1,5 @@
 // Purpose: This file is used to configure the blog, including the author, title, description, and other settings.
-import Intro from "./app/intro.mdx"
+import Intro from "./components/intro.mdx"
 
 const siteData: any = {
     author: "yuanli",  // author name
@@ -26,7 +26,7 @@ const siteData: any = {
             },
             {
                 name: 'Projects',
-                value: '/projects'
+                value: '/project'
             }
         ]
     },
@@ -60,7 +60,7 @@ const siteData: any = {
         // github: the address of the project's github repo
         // status: active | inactive
         // and so on
-        // you can add more fields according to your needs ,but you need to modify the code in the projects/page.tsx file
+        // you can add more fields according to your needs ,but you need to modify the code in the project/page.tsx file
         projects: [
             {
                 name: "NextBlog",

@@ -5,6 +5,7 @@ import {Separator} from "@/components/ui/separator";
 import Header from "@/components/header";
 import siteData from "@/blog.config";
 import ProviderTheme from "@/provider/provider-theme";
+import Title from "@/components/title";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -26,6 +27,7 @@ export default function RootLayout({
             <Separator/>
             <main className={'container my-12'}>
                 <div className={'prose md:prose-lg min-w-full w-full dark:prose-invert'}>
+                    <Title/>
                     {children}
                 </div>
             </main>

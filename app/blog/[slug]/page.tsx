@@ -4,6 +4,7 @@ import {Suspense} from "react";
 import Time from "@/components/time";
 import {getPostsData} from "@/app/server-utils";
 import DrawBack from "@/components/draw-back";
+import Comments from "@/components/comment";
 
 const getPost = (slug: string) => getPostsData().find((post: any) => post.id === slug)
 export async function generateStaticParams() {
@@ -35,6 +36,7 @@ export default function Post({params}: any) {
                     <MDXRemote source={post.content}/>
                 </Suspense>
             </article>
+            <Comments/>
         </div>
     )
 }

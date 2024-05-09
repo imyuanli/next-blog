@@ -1,6 +1,6 @@
 {
   "name": "next-blog",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "A minimal, responsive, and easy-to-use blog template for Next.js",
   "main": "index.js",
   "repository": "https://github.com/imyuanli/next-blog",
@@ -24,7 +24,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "release-major": "standard-version --release-as major",
+    "release-minor": "standard-version --release-as minor",
+    "release-patch": "standard-version --release-as patch"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.1",

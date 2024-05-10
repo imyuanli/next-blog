@@ -4,7 +4,7 @@ import {Suspense} from "react";
 import Time from "@/components/time";
 import {getPostsData} from "@/app/server-utils";
 import DrawBack from "@/components/draw-back";
-import Comments from "@/components/comment";
+import Comments from "@/plugins/comments";
 
 const getPost = (slug: string) => getPostsData().find((post: any) => post.id === slug)
 export async function generateStaticParams() {

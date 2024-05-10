@@ -50,43 +50,6 @@ const siteData: any = {
     blog: {
         title: 'My Blog',
         description: 'All of my long-fesign, and more, collected in chronological order.',
-
-        // provide multiple comment components
-        comment: {
-            enabled: true,
-            used: "giscus", // giscus | utterances
-            config: {
-                // pleace copy the script tag from the giscus website and paste it here
-                // To ensure correct parsing, don`t modify anything!
-
-                // giscus doc: https://giscus.app
-                giscus: `<script src="https://giscus.app/client.js"
-        data-repo="imyuanli/next-blog"
-        data-repo-id="R_kgDOKTZ_kQ"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOKTZ_kc4CfMXK"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="light"
-        data-lang="zh-CN"
-        data-loading="lazy"
-        crossorigin="anonymous"
-        async>
-</script>`,
-
-                // utterances doc: https://utteranc.es
-                utterances: `<script src="https://utteranc.es/client.js"
-        repo="imyuanli/next-blog"
-        issue-term="pathname"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>`,
-            }
-        }
     },
 
     project: {
@@ -167,6 +130,41 @@ const siteData: any = {
                     }
             }
         },
+    },
+
+    comment: {
+        enabled: true,
+        used: "utterances", // giscus | utterances
+        config: {
+            // pleace copy the script tag from the giscus website and paste it here
+            // To ensure correct parsing, don`t modify anything!
+
+            // giscus doc: https://giscus.app
+            giscus: {
+                repo: "imyuanli/next-blog",
+                repoId: "R_kgDOKTZ_kQ",
+                category: "Announcements",
+                categoryId: "DIC_kwDOKTZ_kc4CfMXK",
+                mapping: "pathname",
+                reactionsEnabled: "1",
+                emitMetadata: "0",
+                inputPosition: "top",
+                theme: "light",
+                lang: "en",
+                loading: "lazy",
+            },
+
+            // utterances doc: https://utteranc.es
+            utterances: {
+                src: "https://utteranc.es/client.js",
+                repo: "imyuanli/next-blog",
+                "issue-term": "pathname",
+                theme: "github-light",
+                crossorigin: "anonymous",
+                label: "",
+                async: true
+            }
+        }
     }
 }
 

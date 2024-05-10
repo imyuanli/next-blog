@@ -7,8 +7,9 @@ import Utterances from "@/plugins/comments/utterances";
 import Giscus from "@/plugins/comments/giscus";
 
 const Comments = () => {
-    const {comment: {enabled, used, config}} = siteData
-    if (!enabled) return null
+    const {comment} = siteData
+    if (!comment?.enabled) return null
+    const engine = comment?.engine
     const [show, setShow] = useState(false)
 
     return (
@@ -20,8 +21,8 @@ const Comments = () => {
             }
             {show &&
               <>
-                  {used === "giscus" && <Giscus id="comments" config={config[used]}/>}
-                  {used === "utterances" && <Utterances config={config[used]}/>}
+                  {engine === "giscus" && <Giscus id="comments" config={comment[engine]}/>}
+                  {engine === "utterances" && <Utterances config={comment[engine]}/>}
               </>
             }
         </>

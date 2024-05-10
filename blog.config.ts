@@ -134,36 +134,31 @@ const siteData: any = {
 
     comment: {
         enabled: true,
-        used: "utterances", // giscus | utterances
-        config: {
-            // pleace copy the script tag from the giscus website and paste it here
-            // To ensure correct parsing, don`t modify anything!
+        engine: "utterances", // giscus | utterances
+        // giscus doc: https://giscus.app
+        giscus: {
+            repo: "imyuanli/next-blog",
+            repoId: "R_kgDOKTZ_kQ",
+            category: "Announcements",
+            categoryId: "DIC_kwDOKTZ_kc4CfMXK",
+            mapping: "pathname",
+            reactionsEnabled: "1",
+            emitMetadata: "0",
+            inputPosition: "top",
+            theme: "light",
+            lang: "en",
+            loading: "lazy",
+        },
 
-            // giscus doc: https://giscus.app
-            giscus: {
-                repo: "imyuanli/next-blog",
-                repoId: "R_kgDOKTZ_kQ",
-                category: "Announcements",
-                categoryId: "DIC_kwDOKTZ_kc4CfMXK",
-                mapping: "pathname",
-                reactionsEnabled: "1",
-                emitMetadata: "0",
-                inputPosition: "top",
-                theme: "light",
-                lang: "en",
-                loading: "lazy",
-            },
-
-            // utterances doc: https://utteranc.es
-            utterances: {
-                src: "https://utteranc.es/client.js",
-                repo: "imyuanli/next-blog",
-                "issue-term": "pathname",
-                theme: "github-light",
-                crossorigin: "anonymous",
-                label: "",
-                async: true
-            }
+        // utterances doc: https://utteranc.es
+        utterances: {
+            src: "https://utteranc.es/client.js",
+            repo: "imyuanli/next-blog",
+            "issue-term": "pathname",
+            theme: "github-light",
+            crossorigin: "anonymous",
+            label: "",
+            async: true
         }
     }
 }

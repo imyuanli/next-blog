@@ -14,6 +14,7 @@ import {useState} from "react";
 import {Separator} from "@/components/ui/separator";
 import {Github, Menu, Moon, Sun} from "lucide-react";
 import {useTheme} from "next-themes";
+import Search from "@/plugins/search";
 
 const Header = () => {
     const {githubRepo, header: {logo, title, routes}} = siteData
@@ -75,6 +76,7 @@ const Header = () => {
                         </SheetContent>
                     </Sheet>
                 </div>
+                <Search/>
                 <Link href={githubRepo}>
                     <Button size={'icon'} variant={'ghost'}>
                         <Github size={20}/>

@@ -40,6 +40,7 @@
     "@types/mdx": "^2.0.13",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "cmdk": "^0.2.1",
     "dayjs": "^1.11.10",
     "gitalk": "^1.8.0",
     "gray-matter": "^4.0.3",

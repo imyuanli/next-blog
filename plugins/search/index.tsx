@@ -26,12 +26,12 @@ const Search = () => {
     return (
         <>
             <div className={'hidden md:block'}>
-                <Button className={'w-48 justify-between'} size={'sm'}
+                <Button className={'w-48 justify-between mr-2'} size={'sm'}
                         variant={'outline'}
                         onClick={() => {
                             setOpen(true)
                         }}>
-                    Search...
+                    Search Blog...
                     <div className={'p-1 flex justify-center items-center'}>
                         <Command size={16}/>
                         <span className={'text-base'}>K</span>

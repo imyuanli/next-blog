@@ -165,10 +165,11 @@ const siteData: any = {
     search: {
         enabled: true,
         engine: "cmdk", //  cmdk | algolia
-        algolia: {
-            appId: "4QZ2H7VZ9Z",
-            apiKey: "b6b8b6d2b1",
-        }
+        // todo algolia search
+        // algolia: {
+        //     appId: "",
+        //     apiKey: "",
+        // }
     }
 }
 

@@ -37,13 +37,16 @@ You only need to modify the configuration file content and write articles.
 
 ### Features
 
-1. [x] **Mobile responsive** 
-2. [ ] **Comments**
-3. [ ] **Search**
+1. [x] **Mobile responsive**
+2. [x] **Comments**
+3. [x] **Search**
 4. [x] **SEO friendly**
 5. [ ] **Syntax highlighting**
 6. [ ] **Tags**
 7. [ ] **Pagination**
+8. [x] **Dark mode**
+9. [ ] **RSS**
+10. [ ] **remark and rehype plugins**
 
 If you have any ideas, please let me know.
 

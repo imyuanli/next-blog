@@ -100,7 +100,7 @@ const siteData: any = {
             {
                 name: "NextBlog",
                 description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
-                href: "https://imyuanli.vercel.app/",
+                href: "https://next-blog.imyuanli.cn",
                 github: "imyuanli/next-blog",
                 status: "active",
             },

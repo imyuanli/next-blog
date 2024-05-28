@@ -134,7 +134,7 @@ const siteData: any = {
 
     comment: {
         enabled: true,
-        engine: "utterances", // giscus | utterances
+        engine: "giscus", // giscus | utterances
         // giscus doc: https://giscus.app
         giscus: {
             repo: "imyuanli/next-blog",

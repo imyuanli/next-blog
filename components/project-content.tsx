@@ -18,11 +18,17 @@ const ProjectContent = () => {
                 return (
                     <div className={'not-prose'} key={index}>
                         <div className={'flex items-center mb-2'}>
-                            <Link href={project.href} className={'underline underline-offset-4'}>
+                            {project.href ?
+                                <Link href={project.href} className={'underline underline-offset-4'}>
+                                    <CardTitle>
+                                        {project.name}
+                                    </CardTitle>
+                                </Link>
+                                :
                                 <CardTitle>
                                     {project.name}
                                 </CardTitle>
-                            </Link>
+                            }
                             {project.status && <Badge className={'ml-4'} variant={variant}>
                                 {text}
                             </Badge>}

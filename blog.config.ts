@@ -56,9 +56,44 @@ const siteData: any = {
         title: "Look what I've done",
         description: "Some small tools made by oneself",
 
-        // name, description, link are required
-        // github: the address of the project's github repo
-        // status: active | inactive
+        // status color and text
+        getStatus: (status: string) => {
+            // you can customize the status color and text！
+
+            // dev: Under development or planning.
+            // active: Currently focused on this project.
+            // filed: Not upgrading will only fix bugs.
+            // offline: Going offline soon.
+            // none: Keep running.
+            if(!status) return {}
+
+            switch (status) {
+                case "active":
+                    return {
+                        variant: "default",
+                        text: "ACTIVE",
+                    }
+                case "dev":
+                    return {
+                        variant: "secondary",
+                        text: "DEV",
+                    }
+                case "filed":
+                    return {
+                        variant: "outline",
+                        text: "FILED",
+                    }
+                case "offline":
+                    return {
+                        variant: "destructive",
+                        text: "OFFLINE",
+                    }
+            }
+        },
+
+        // name, description, href are required
+        // github: username/repo
+        // status: getStatus return value
         // and so on
         // you can add more fields according to your needs ,but you need to modify the code in the project/page.tsx file
         projects: [
@@ -66,70 +101,35 @@ const siteData: any = {
                 name: "NextBlog",
                 description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
                 href: "https://imyuanli.vercel.app/",
+                github: "imyuanli/next-blog",
                 status: "active",
             },
             {
-                name: "NextBlog",
-                description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
-                href: "https://next-blog-imyuanli.vercel.app/",
-                github: "https://github.com/imyuanli/next-blog",
-                status: "bug",
-            },
-            {
-                name: "NextBlog",
-                description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
-                href: "https://next-blog-imyuanli.vercel.app/",
-                status: "inactive",
-            },
-            {
-                name: "NextBlog",
-                description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
-                href: "https://next-blog-imyuanli.vercel.app/",
+                name: "AllDone",
+                description: "One stop project management platform",
                 status: "dev",
             },
             {
-                name: "NextBlog",
-                description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
-                href: "https://next-blog-imyuanli.vercel.app/",
+                name: "Slash Editor",
+                description: "A simple rich text editor",
+                href: "https://slash.imyuanli.cn",
+                github: "imyuanli/slash-editor",
             },
             {
-                name: "NextBlog",
-                description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
-                href: "https://next-blog-imyuanli.vercel.app/",
-                github: "https://github.com/imyuanli/next-blog",
+                name: "RMX",
+                description: "Readme 是一个在线编辑器，可以帮助开发人员为他们快速的制作项目的README.md，同时也满足Github个人主页的一些模板",
+                href: "https://readme.imyuanli.cn/",
+                github: "imyuanli/readme",
+                status: "filed",
+            },
+            {
+                name: "简历生成",
+                description: "一款极简的在线简历生成器，存在诸多bug，可能会进行大升级！",
+                href: "https://resume.imyuanli.cn/",
+                github: "imyuanli/resume",
+                status: "offline",
             },
         ],
-
-        // status color and text
-        getStatus: (status: string) => {
-            switch (status) {
-                case "active":
-                    return {
-                        variant: "default",
-                        text: "ACTIVE",
-                    }
-                case "inactive":
-                    return {
-                        variant: "secondary",
-                        text: "INACTIVE",
-                    }
-                case "bug":
-                    return {
-                        variant: "destructive",
-                        text: "BUG",
-                    }
-                case "dev":
-                    return {
-                        variant: "outline",
-                        text: "DEV",
-                    }
-                default:
-                    return {
-                        variant: "default",
-                        text: "ACTIVE",
-                    }
-            }
-        },
     },
 
     comment: {

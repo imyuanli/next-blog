@@ -24,10 +24,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "release-major": "standard-version --release-as major",
-    "release-minor": "standard-version --release-as minor",
-    "release-patch": "standard-version --release-as patch"
+    "lint": "next lint"
   },
   "dependencies": {
     "@giscus/react": "^3.0.0",

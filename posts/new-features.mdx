@@ -1,0 +1,140 @@
+---
+title: "Upgrade now!"
+summary: "NextBlog has added many features to make your blog more powerful！"
+date: 2024-06-20
+tags: ["NextBlog","Features"]
+draft: false
+---
+
+NextBlog has finally received an update, adding many features. Let's introduce them one by one！🎉
+
+### Add Comments
+
+**Comments** are finally here! You can now add comments to your blog posts.Click the `💬Show Comment` button at the bottom of the article to leave a comment.
+
+comments are powered by  [Giscus](https://giscus.app) and [utteranc](https://utteranc.es/),
+you can customize the comments by modifying the `blog.comment` configuration in `blog.config.ts`.
+
+### Search
+
+**Search** is now available! You can search for articles by entering keywords in the search box.
+
+Experience using shortcut keys - `Ctrl + k` or `Cmd + k` to focus on the search box
+
+
+### Tags
+
+Now, NextBlog will categorize your articles by tags and integrate them into the [**Tags**](/tags) page,
+and you can also click on the tags in the article to view all related articles under that tag.
+
+It is usually recommended that you do not add too many tags to an article, as this will make your article classification clearer.
+
+### Simplified Configuration
+
+The configuration file `blog.config.ts` has been simplified, and you can easily customize the website by modifying the configuration file.
+
+You may need to reconfigure to run the project!
+
+Here is an example of a new configuration file:
+
+```
+    author: "yuanli",  // author name
+    logo: {
+        // you can use image or text as the logo, you can choose both, but the image will be displayed first
+        image: "/logo.png", //  the file path of the logo in the public directory
+        text: "NextBlog", // null || text
+
+        // whether the logo is a link to the home page
+        isHomeLink: true, // true | false
+    },
+
+    // website title
+    title: "NextBlog",
+
+    // website description
+    description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
+
+    // light | dark
+    theme: "light",
+
+    // your blog repo || your github repo || null
+    githubRepo: "https://github.com/imyuanli/next-blog",
+
+    // routes
+    routes: [...],
+
+    // home page config
+    home: {
+        title: "Welcome to NextBlog",
+        description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
+
+        // introduction or about me
+        intro: Intro, // file path of the introduction
+
+        socials: {...},
+    },
+
+    // blog page config
+    blog: {
+        title: 'My Blog',
+        description: 'All of my long-fesign, and more, collected in chronological order.',
+        comment: {
+            enabled: true,
+            engine: "giscus", // giscus | utterances
+            // giscus doc: https://giscus.app
+            giscus: {...},
+
+            // utterances doc: https://utteranc.es
+            utterances: {...}
+        },
+    },
+
+    // tags page config
+    tags: {
+        title: 'Tags',
+        description: 'All of my tags, collected in alphabetical order.',
+    },
+
+    // project page config
+    project: {
+        title: "Look what I've done",
+        description: "Some small tools made by oneself",
+
+        // status color and text
+        getStatus: (status: string) => {...},
+
+        // name, description, href are required
+        // github: username/repo
+        // status: getStatus return value
+        // and so on
+        // you can add more fields according to your needs ,but you need to modify the code in the project/page.tsx file
+        projects: [...],
+    },
+
+    // search config
+    search: {
+        enabled: true,
+        engine: "cmdk", //  cmdk | algolia
+    },
+
+    // footer config
+    footer: {
+        isShow: true,
+        // whether to display the "Powered by NextBlog" in the footer，you can set it to false，but I hope you can keep it，thank you！
+        isShowPoweredBy: true,
+    },
+```
+
+
+### Conclusion
+
+Of course, I have also made some UI and other optimizations, but I won't list them all here. I hope this update can bring you a better experience.
+
+This update is a big step forward for NextBlog, and I hope you like it. If you have any questions or suggestions, please feel free to contact me.
+
+Thank you for your support! 🙏 If you like NextBlog, please give me a star on [GitHub](https://github.com/imyuanli/next-blog)！
+
+
+
+
+

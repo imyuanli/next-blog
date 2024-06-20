@@ -24,7 +24,7 @@ export default function RootLayout({
         <html lang="en">
         <ProviderTheme>
             <body className={'min-h-screen font-mono flex flex-col justify-between'}>
-            <div>
+            <div className={'flex-1'}>
                 <Header/>
                 <Separator/>
                 <main className={'container md:my-12 my-8'}>

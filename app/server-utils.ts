@@ -20,3 +20,15 @@ export const getPostsData = () => {
         }
     }).filter((post: any) => !post.draft)
 }
+
+export const getTagsData = () => {
+    return getPostsData().reduce((acc: any, post: any) => {
+        post.tags.forEach((tag: any) => {
+            if (!acc[tag]) {
+                acc[tag] = 0
+            }
+            acc[tag]++
+        })
+        return acc
+    }, {})
+}

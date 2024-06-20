@@ -33,6 +33,10 @@ const siteData: any = {
             value: '/blog'
         },
         {
+            name: 'Tags',
+            value: '/tags'
+        },
+        {
             name: 'Projects',
             value: '/project'
         },

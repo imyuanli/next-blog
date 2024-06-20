@@ -188,6 +188,13 @@ const siteData: any = {
         //     apiKey: "",
         // }
     },
+
+    // footer config
+    footer: {
+        isShow: true,
+        // whether to display the "Powered by NextBlog" in the footer，you can set it to false，but I hope you can keep it，thank you！
+        isShowPoweredBy: true,
+    },
 }
 
 export default siteData

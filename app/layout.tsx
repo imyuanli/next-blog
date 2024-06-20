@@ -6,6 +6,7 @@ import Header from "@/components/header";
 import siteData from "@/blog.config";
 import ProviderTheme from "@/provider/provider-theme";
 import Title from "@/components/title";
+import Footer from "@/components/footer";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -21,18 +22,21 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-        <body className={'min-h-screen font-mono'}>
         <ProviderTheme>
-            <Header/>
-            <Separator/>
-            <main className={'container md:my-12 my-8'}>
-                <div className={'prose md:prose-lg min-w-full w-full dark:prose-invert'}>
-                    <Title/>
-                    {children}
-                </div>
-            </main>
+            <body className={'min-h-screen font-mono flex flex-col justify-between'}>
+            <div>
+                <Header/>
+                <Separator/>
+                <main className={'container md:my-12 my-8'}>
+                    <div className={'prose md:prose-lg min-w-full w-full dark:prose-invert'}>
+                        <Title/>
+                        {children}
+                    </div>
+                </main>
+            </div>
+            <Footer/>
+            </body>
         </ProviderTheme>
-        </body>
         </html>
     );
 }

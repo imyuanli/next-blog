@@ -33,7 +33,7 @@ npm run dev
 You only need to modify the configuration file content and write articles.
 
 - configuration file: `blog.config.ts`
-- article file: `posts/*.mdx`
+- article file: `posts/*.mdx | posts/*.md`
 
 ### Features
 
@@ -41,12 +41,12 @@ You only need to modify the configuration file content and write articles.
 2. [x] **Comments**
 3. [x] **Search**
 4. [x] **SEO friendly**
-5. [ ] **Syntax highlighting**
-6. [ ] **Tags**
+5. [x] **Dark mode**
+6. [x] **Tags**
 7. [ ] **Pagination**
-8. [x] **Dark mode**
+8. [ ] **remark and rehype plugins**
 9. [ ] **RSS**
-10. [ ] **remark and rehype plugins**
+10. [ ] **Syntax highlighting**
 
 If you have any ideas, please let me know.
 

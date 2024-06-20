@@ -20,6 +20,9 @@ const siteData: any = {
     // website title
     title: "NextBlog",
 
+    // website description
+    description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
+
     // light | dark
     theme: "light",
 
@@ -45,6 +48,7 @@ const siteData: any = {
     // home page config
     home: {
         title: "Welcome to NextBlog",
+        description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
 
         // introduction or about me
         intro: Intro, // file path of the introduction

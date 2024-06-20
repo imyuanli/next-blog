@@ -7,8 +7,9 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const getMetadata = (type: string) => {
+    const {title} = siteData
     return {
-        title: siteData[type].title,
+        title: `${siteData[type].title}- ${title}`,
         description: siteData[type].description,
     }
 }

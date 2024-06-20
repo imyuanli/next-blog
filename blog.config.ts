@@ -1,41 +1,50 @@
 // Purpose: This file is used to configure the blog, including the author, title, description, and other settings.
-import Intro from "./components/intro.mdx"
+
+import Intro from "./components/intro.mdx" // introduction or about me
 
 const siteData: any = {
     author: "yuanli",  // author name
-    title: "NextBlog", // website title
-    description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css", // website description
-    theme: "light", // light | dark
-    language: "zh-CN", // zh-CN | en
-    githubRepo: "https://github.com/imyuanli/next-blog", // your blog's github repo
+    logo: {
+        // how to change the favicon of the website?
+        // change the app/favicon.ico file directly，or refer to the document below
+        // https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons
 
-    // how to change the favicon of the website?
-    // change the app/favicon.ico file directly，or refer to the document below
-    // https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons
+        // you can use image or text as the logo, you can choose both, but the image will be displayed first
+        image: "/logo.png", //  the file path of the logo in the public directory
+        text: "NextBlog", // null || text
 
-    //header config
-    header: {
-        logo: "/logo.png",  //  /public/logo.png
-        title: "NextBlog", // header title
-
-        // navigation bar
-        routes: [
-            {
-                name: 'Blog',
-                value: '/blog'
-            },
-            {
-                name: 'Projects',
-                value: '/project'
-            }
-        ]
+        // whether the logo is a link to the home page
+        isHomeLink: true, // true | false
     },
 
+    // website title
+    title: "NextBlog",
+
+    // light | dark
+    theme: "light",
+
+    // your blog repo || your github repo || null
+    githubRepo: "https://github.com/imyuanli/next-blog",
+
+    // routes
+    routes: [
+        {
+            name: 'Blog',
+            value: '/blog'
+        },
+        {
+            name: 'Projects',
+            value: '/project'
+        },
+    ],
+
+    // home page config
     home: {
         title: "Welcome to NextBlog",
 
         // introduction or about me
         intro: Intro, // file path of the introduction
+
         socials: {
             email: "286547316@qq.com",
             github: "https://github.com/imyuanli",
@@ -47,11 +56,48 @@ const siteData: any = {
         },
     },
 
+    // blog page config
     blog: {
         title: 'My Blog',
         description: 'All of my long-fesign, and more, collected in chronological order.',
+        comment: {
+            enabled: true,
+            engine: "giscus", // giscus | utterances
+            // giscus doc: https://giscus.app
+            giscus: {
+                repo: "imyuanli/next-blog",
+                repoId: "R_kgDOKTZ_kQ",
+                category: "Announcements",
+                categoryId: "DIC_kwDOKTZ_kc4CfMXK",
+                mapping: "pathname",
+                reactionsEnabled: "1",
+                emitMetadata: "0",
+                inputPosition: "top",
+                theme: "light",
+                lang: "en",
+                loading: "lazy",
+            },
+
+            // utterances doc: https://utteranc.es
+            utterances: {
+                src: "https://utteranc.es/client.js",
+                repo: "imyuanli/next-blog",
+                "issue-term": "pathname",
+                theme: "github-light",
+                crossorigin: "anonymous",
+                label: "",
+                async: true
+            }
+        },
     },
 
+    // tags page config
+    tags: {
+        title: 'Tags',
+        description: 'All of my tags, collected in alphabetical order.',
+    },
+
+    // project page config
     project: {
         title: "Look what I've done",
         description: "Some small tools made by oneself",
@@ -65,7 +111,7 @@ const siteData: any = {
             // filed: Not upgrading will only fix bugs.
             // offline: Going offline soon.
             // none: Keep running.
-            if(!status) return {}
+            if (!status) return {}
 
             switch (status) {
                 case "active":
@@ -132,36 +178,7 @@ const siteData: any = {
         ],
     },
 
-    comment: {
-        enabled: true,
-        engine: "giscus", // giscus | utterances
-        // giscus doc: https://giscus.app
-        giscus: {
-            repo: "imyuanli/next-blog",
-            repoId: "R_kgDOKTZ_kQ",
-            category: "Announcements",
-            categoryId: "DIC_kwDOKTZ_kc4CfMXK",
-            mapping: "pathname",
-            reactionsEnabled: "1",
-            emitMetadata: "0",
-            inputPosition: "top",
-            theme: "light",
-            lang: "en",
-            loading: "lazy",
-        },
-
-        // utterances doc: https://utteranc.es
-        utterances: {
-            src: "https://utteranc.es/client.js",
-            repo: "imyuanli/next-blog",
-            "issue-term": "pathname",
-            theme: "github-light",
-            crossorigin: "anonymous",
-            label: "",
-            async: true
-        }
-    },
-
+    // search config
     search: {
         enabled: true,
         engine: "cmdk", //  cmdk | algolia
@@ -170,7 +187,7 @@ const siteData: any = {
         //     appId: "",
         //     apiKey: "",
         // }
-    }
+    },
 }
 
 export default siteData

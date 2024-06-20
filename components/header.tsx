@@ -17,7 +17,7 @@ import {useTheme} from "next-themes";
 import Search from "@/plugins/search";
 
 const Header = () => {
-    const {githubRepo, header: {logo, title, routes}} = siteData
+    const {routes, logo, githubRepo} = siteData
 
     //高亮导航栏
     const pathname = usePathname()
@@ -30,15 +30,17 @@ const Header = () => {
         <header className={'container flex justify-between py-4'}>
             <div className={'flex justify-center items-center'}>
                 <Link className={'flex justify-center items-center mr-4'} href={'/'}>
-                    <Image
-                        src={logo}
-                        height={28}
-                        width={28}
-                        alt={'logo'}
-                    />
-                    <div className={'ml-1 text-lg font-semibold'}>
-                        {title}
-                    </div>
+                    {logo?.image &&
+                        <Image
+                            src={logo?.image}
+                            height={28}
+                            width={28}
+                            alt={'logo'}
+                        />
+                    }
+                    {logo?.text && <div className={'ml-1 text-lg font-semibold'}>
+                        {logo?.text}
+                    </div>}
                 </Link>
                 <div className={'hidden md:block space-x-1'}>
                     {routes.map((route: any) => (
@@ -66,7 +68,8 @@ const Header = () => {
                                     <Link href={route.value} onClick={() => {
                                         setOpen(false)
                                     }}>
-                                        <Button variant={active == route.name ? 'secondary' : 'ghost'} className={'text-base w-full'}>
+                                        <Button variant={active == route.name ? 'secondary' : 'ghost'}
+                                                className={'text-base w-full'}>
                                             {route.name}
                                         </Button>
                                     </Link>

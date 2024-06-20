@@ -7,7 +7,7 @@ import Utterances from "@/plugins/comments/utterances";
 import Giscus from "@/plugins/comments/giscus";
 
 const Comments = () => {
-    const {comment} = siteData
+    const {blog: {comment}} = siteData
     if (!comment?.enabled) return null
     const engine = comment?.engine
     const [show, setShow] = useState(false)
@@ -15,20 +15,19 @@ const Comments = () => {
     return (
         <>
             {!show &&
-              <Button className={'w-full'} variant={'outline'} onClick={() => setShow(true)}>
-                Show Comments
-              </Button>
+                <Button className={'w-full'} variant={'outline'} onClick={() => setShow(true)}>
+                    Show Comments
+                </Button>
             }
             {show &&
-              <>
-                  {engine === "giscus" && <Giscus id="comments" config={comment[engine]}/>}
-                  {engine === "utterances" && <Utterances config={comment[engine]}/>}
-              </>
+                <>
+                    {engine === "giscus" && <Giscus id="comments" config={comment[engine]}/>}
+                    {engine === "utterances" && <Utterances config={comment[engine]}/>}
+                </>
             }
         </>
     )
 
 };
-
 
 export default Comments;

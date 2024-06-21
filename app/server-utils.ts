@@ -19,6 +19,7 @@ export const getPostsData = () => {
             stats: readingTime(matterResult.content)
         }
     }).filter((post: any) => !post.draft)
+        .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime())
 }
 
 export const getTagsData = () => {

@@ -2,6 +2,7 @@ import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
 import readingTime from "reading-time";
+import dayjs from "dayjs";
 
 export const getPostsData = () => {
     const postsDirectory = path.join(process.cwd(), 'posts')
@@ -19,7 +20,8 @@ export const getPostsData = () => {
             stats: readingTime(matterResult.content)
         }
     }).filter((post: any) => !post.draft)
-        .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        .filter((post: any) => dayjs(post.date).isBefore(dayjs()))
+        .sort((a: any, b: any) => dayjs(a.date).isBefore(dayjs(b.date)) ? 1 : -1)
 }
 
 export const getTagsData = () => {

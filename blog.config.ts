@@ -97,6 +97,11 @@ const siteData: any = {
                 async: true
             }
         },
+        pagination: {
+            enabled: true,
+            pageSize: 5,
+            engine: "default", // default:pagination button | loadMore:loading more button
+        }
     },
 
     // tags page config

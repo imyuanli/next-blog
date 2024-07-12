@@ -7,6 +7,7 @@ import siteData from "@/blog.config";
 import ProviderTheme from "@/provider/provider-theme";
 import Title from "@/components/title";
 import Footer from "@/components/footer";
+import BackToTop from "@/components/BackToTop";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -23,7 +24,7 @@ export default function RootLayout({
     return (
         <html lang="en">
         <ProviderTheme>
-            <body className={'min-h-screen font-mono flex flex-col justify-between'}>
+            <body className={'relative min-h-screen font-mono flex flex-col justify-between'}>
             <div className={'flex-1'}>
                 <Header/>
                 <Separator/>
@@ -35,6 +36,7 @@ export default function RootLayout({
                 </main>
             </div>
             <Footer/>
+            <BackToTop/>
             </body>
         </ProviderTheme>
         </html>

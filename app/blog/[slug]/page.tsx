@@ -5,6 +5,11 @@ import Time from "@/components/time";
 import {getPostsData} from "@/app/server-utils";
 import DrawBack from "@/components/draw-back";
 import Comments from "@/plugins/comments";
+import shiki from 'rehype-shiki'
+import {toc} from "@jsdevtools/rehype-toc";
+import rehypeSlug from "rehype-slug";
+import rehypeStringify from "rehype-stringify";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const getPost = (slug: string) => getPostsData().find((post: any) => post.id === slug)
 export async function generateStaticParams() {
@@ -24,6 +29,7 @@ export default function Post({params}: any) {
     const {slug} = params
     const post: any = getPost(slug)
     if (!post || post?.draft) notFound()
+    console.log(post.content)
 
     return (
         <div className={'relative'}>
@@ -33,7 +39,23 @@ export default function Post({params}: any) {
                     <Time date={post.date}/> · {post.stats.words} words · {post.stats.text}
                 </div>
                 <Suspense fallback={<>Loading...</>}>
-                    <MDXRemote source={post.content}/>
+                    <MDXRemote
+                        source={post.content}
+                        options={{
+                            mdxOptions: {
+                                rehypePlugins: [
+                                    shiki,
+                                    rehypeSlug,
+                                    toc,
+                                    rehypeStringify,
+                                    rehypeAutolinkHeadings,
+                                ],
+                                remarkRehypeOptions: {
+                                    allowDangerousHtml: true
+                                }
+                            }
+                        }}
+                    />
                 </Suspense>
             </article>
             <Comments/>

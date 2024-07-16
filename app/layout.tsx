@@ -7,7 +7,7 @@ import siteData from "@/blog.config";
 import ProviderTheme from "@/provider/provider-theme";
 import Title from "@/components/title";
 import Footer from "@/components/footer";
-import BackToTop from "@/components/BackToTop";
+import BackToTop from "@/components/back-to-top";
 
 const inter = Inter({subsets: ["latin"]});
 

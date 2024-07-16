@@ -10,13 +10,16 @@ import {toc} from "@jsdevtools/rehype-toc";
 import rehypeSlug from "rehype-slug";
 import rehypeStringify from "rehype-stringify";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import remarkGfm from "remark-gfm";
 
 const getPost = (slug: string) => getPostsData().find((post: any) => post.id === slug)
+
 export async function generateStaticParams() {
     return getPostsData().map((post) => ({
         slug: post.id
     }))
 }
+
 export async function generateMetadata({params}: any) {
     const post: any = getPost(params.slug)
     return {
@@ -29,7 +32,6 @@ export default function Post({params}: any) {
     const {slug} = params
     const post: any = getPost(slug)
     if (!post || post?.draft) notFound()
-    console.log(post.content)
 
     return (
         <div className={'relative'}>
@@ -43,6 +45,9 @@ export default function Post({params}: any) {
                         source={post.content}
                         options={{
                             mdxOptions: {
+                                remarkPlugins: [
+                                    remarkGfm,
+                                ],
                                 rehypePlugins: [
                                     shiki,
                                     rehypeSlug,

@@ -16,7 +16,7 @@ export const getPostsData = () => {
         return {
             id,
             ...matterResult.data,
-            content: matterResult.content,
+            content: '\r\n' + `# ${matterResult?.data.title}` + matterResult.content,
             stats: readingTime(matterResult.content)
         }
     }).filter((post: any) => !post.draft)

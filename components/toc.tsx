@@ -23,10 +23,9 @@ const Toc = ({toc}: any) => {
             behavior: 'smooth'
         })
     }
-
     return (
         <div className={'flex flex-col w-full space-y-1'}>
-            {
+            {toc.length > 0 ?
                 toc.map((item: any, index: number) => {
                     return (
                         <Button
@@ -42,6 +41,10 @@ const Toc = ({toc}: any) => {
                         </Button>
                     )
                 })
+                :
+                <div className={'text-sm text-gray-500 p-4'}>
+                    No table of contents.
+                </div>
             }
         </div>
     )

@@ -9,10 +9,10 @@ export const metadata: Metadata = getMetadata("home")
 const Home = () => {
 
     return (
-        <>
+        <div className={"container"}>
             <Intro/>
             <SocialList/>
-        </>
+        </div>
     )
 }
 

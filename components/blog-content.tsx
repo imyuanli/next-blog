@@ -38,7 +38,7 @@ const BlogContent = ({posts}: any) => {
     }
 
     return (
-        <div className={'pt-8 space-y-8'}>
+        <>
             {posts.map((post: any, index: number) => (
                 <div className={'space-y-4'} key={index}>
                     <div className={'space-y-4'}>
@@ -107,7 +107,7 @@ const BlogContent = ({posts}: any) => {
                     )}
                 </div>
             )}
-        </div>
+        </>
     );
 }
 

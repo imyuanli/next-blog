@@ -12,7 +12,7 @@ const ProjectContent = () => {
     const {project: {projects, getStatus}} = siteData;
 
     return (
-        <div className={'pt-8 space-y-8'}>
+        <>
             {projects.map((project: any, index: number): any => {
                 const {variant, text}: any = getStatus(project.status)
                 return (
@@ -44,7 +44,7 @@ const ProjectContent = () => {
                     </div>
                 )
             })}
-        </div>
+        </>
     );
 }
 

@@ -27,12 +27,9 @@ export default function RootLayout({
             <body className={'relative min-h-screen font-mono flex flex-col justify-between'}>
             <div className={'flex-1'}>
                 <Header/>
-                <Separator/>
-                <main className={'container md:my-12 my-8'}>
-                    <div className={'prose md:prose-lg min-w-full w-full dark:prose-invert'}>
-                        <Title/>
-                        {children}
-                    </div>
+                <main className={'container mt-28 md:mb-12 mb-8 min-w-full prose md:prose-lg dark:prose-invert'}>
+                    <Title/>
+                    {children}
                 </main>
             </div>
             <Footer/>

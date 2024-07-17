@@ -62,7 +62,7 @@ export default async function Post({params}: any) {
         <div className={"w-full flex justify-center"}>
             <div className={'w-full max-w-screen-lg  relative'}>
                 {/*mobile*/}
-                <div className={'block md:hidden sticky top-20 p-2 bg-white/80 backdrop-blur-md z-10 w-full shadow-sm'}>
+                <div className={'block lg:hidden sticky top-20 p-2 bg-white/80 backdrop-blur-md z-10 w-full shadow-sm'}>
                     <div className={'flex justify-between'}>
                         <div className={'space-x-4'}>
                             <SideNav/>
@@ -87,7 +87,7 @@ export default async function Post({params}: any) {
 
                 {/*pc*/}
                 <div className={'px-4 pt-8'}>
-                    <div className={'sticky top-28 hidden xl:block'}>
+                    <div className={'sticky top-28 hidden lg:block'}>
                         <div className={'absolute top-24 -left-16 -translate-x-full flex flex-col space-y-4'}>
                             <SideNav/>
                         </div>

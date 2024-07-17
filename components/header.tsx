@@ -27,7 +27,7 @@ const Header = () => {
     const [open, setOpen] = useState(false)
 
     return (
-        <div className={'w-full fixed top-0 bg-white/80 backdrop-blur-sm shadow-sm z-10'}>
+        <div className={'w-full sticky top-0 bg-white/80 backdrop-blur-md shadow-sm z-10 min-h-20'}>
             <header className={'container flex justify-between py-4'}>
                 <div className={'flex justify-center items-center'}>
                     <Link className={'flex justify-center items-center mr-4'} href={'/'}>

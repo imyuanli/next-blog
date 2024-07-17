@@ -26,7 +26,7 @@ const Title = () => {
     const data = name ? siteData[name] : siteData.home
 
     return (
-        data && <div className={'container'}>
+        data && <div className={'container pt-8'}>
           <h1>{data?.title}</h1>
             {data?.description && <p className={'text-zinc-600'}>{data?.description}</p>}
           <Separator/>

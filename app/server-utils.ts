@@ -7,7 +7,7 @@ import dayjs from "dayjs";
 export const getPostsData = () => {
     const postsDirectory = path.join(process.cwd(), 'posts')
     const fileNames = fs.readdirSync(postsDirectory)
-    return fileNames.map((fileName: any) => {
+    const posts: any = fileNames.map((fileName: any) => {
         // 这里匹配 md 或者 mdx
         const id = fileName.replace(/\.mdx?$/, '')
         const fullPath = path.join(postsDirectory, fileName)
@@ -21,7 +21,19 @@ export const getPostsData = () => {
         }
     }).filter((post: any) => !post.draft)
         .filter((post: any) => dayjs(post.date).isBefore(dayjs()))
-        .sort((a: any, b: any) => dayjs(a.date).isBefore(dayjs(b.date)) ? 1 : -1)
+    const {pinnedPosts, commonPosts} = posts.reduce((acc: any, post: any) => {
+        if (post.pinned) {
+            acc.pinnedPosts.push(post)
+        } else {
+            acc.commonPosts.push(post)
+        }
+        return acc
+    }, {pinnedPosts: [], commonPosts: []})
+
+    return [
+        ...pinnedPosts.sort((a: any, b: any) => a.pinned - b.pinned),
+        ...commonPosts.sort((a: any, b: any) => dayjs(a.date).isBefore(dayjs(b.date)) ? 1 : -1)
+    ]
 }
 
 export const getTagsData = () => {

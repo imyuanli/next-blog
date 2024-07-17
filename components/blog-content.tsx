@@ -45,10 +45,15 @@ const BlogContent = ({posts}: any) => {
                         <div className={'block md:hidden'}>
                             <Time date={post.time}/>
                         </div>
-                        <CardTitle className={'not-prose'}>
+                        <CardTitle className={'not-prose space-x-4 flex justify-start items-center'}>
                             <Link className={'underline underline-offset-4'} href={`/blog/${post.id}`}>
                                 {post.title}
                             </Link>
+                            {post.pinned && (
+                                <Badge className={'li'}>
+                                    Pinned
+                                </Badge>
+                            )}
                         </CardTitle>
                         <div className={'flex flex-col md:flex-row md:space-x-4'}>
                             <div className={'hidden md:block'}>

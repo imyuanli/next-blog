@@ -66,8 +66,8 @@ const siteData: any = {
 
     // blog page config
     blog: {
-        title: 'My Blog',
-        description: 'All of my long-fesign, and more, collected in chronological order.',
+        title: 'Changelog & Blogs',
+        description: 'Regarding the update logs of NextBlog, blogs, and others, etc.',
         comment: {
             enabled: true,
             engine: "giscus", // giscus | utterances
@@ -176,14 +176,14 @@ const siteData: any = {
             },
             {
                 name: "RMX",
-                description: "Readme 是一个在线编辑器，可以帮助开发人员为他们快速的制作项目的README.md，同时也满足Github个人主页的一些模板",
+                description: "Readme is an online editor that can help developers quickly create README.md for their projects, while also meeting some templates for Github personal pages",
                 href: "https://readme.imyuanli.cn/",
                 github: "imyuanli/readme",
                 status: "filed",
             },
             {
-                name: "简历生成",
-                description: "一款极简的在线简历生成器，存在诸多bug，可能会进行大升级！",
+                name: "Resume",
+                description: "A simple resume template",
                 href: "https://resume.imyuanli.cn/",
                 github: "imyuanli/resume",
                 status: "offline",

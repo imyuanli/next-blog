@@ -1,0 +1,117 @@
+---
+title: "Heavy update!"
+summary: "NextBlog has finally received an update, adding many features. Let's introduce them one by one！🎉"
+date: 2024-07-17
+tags: ["NextBlog","Features"]
+pinned: 1
+---
+
+## Pagination
+
+The pagination feature has been added to the article list page, and the number of articles displayed on each page can be set in the configuration file.
+
+Although I don't think the pagination feature is necessary, some people may like it, so I added this feature.
+
+``` javascript
+    blog: {
+        ...
+        comment: {...},
+        pagination: {
+            enabled: true,
+            pageSize: 5,
+            engine: "default", // default:pagination button | loadMore:loading more button
+        }
+    },
+```
+
+
+## Table of contents
+
+> This function is temporarily uncontrollable, and the display is fixed on the right side of the page.
+
+NextBlog will collect titles from articles and generate a table of contents for readers to quickly locate a specific part of the article.
+
+And we will also adjust the title ranking accordingly to ensure that there is only one top-level title in the document.
+
+It is worth mentioning that top-level titles will not appear in the directory
+
+Check the table of contents on the right side of the article and experience it
+
+
+## Pinned articles
+
+Adding the 'pinned' field to YAML Front Matter in the article will fix the article at the top of the article list.
+
+The articles that are placed at the top will not be sorted by publication date, but will be sorted based on the value of the 'pinned' field you set.
+The smaller the value, the higher the ranking of the article.
+
+```yaml
+    title: ...
+    summary: ...
+    date: ...
+    tags: ...
+    pinned: 1 // 2,3,4...
+```
+
+The current article is a pinned article
+
+## Timed release
+
+In this version, the feature of timed release of articles is supported
+
+you only need to set the `date` field in the article to a future time to achieve the function of timed release of articles.
+
+```yaml
+title: ....
+summary: ...
+date: 2024-08-01
+tags: ...
+draft: ...
+```
+
+
+## Remark and Rehype
+
+> The plugin currently does not support customization
+
+Thank you very much for the plugins provided by Remark and Rehope, which make the article more beautiful and more readable.
+
+NextBlog has integrated the following plugins:
+
+- remark-slug
+- remark-autolink-headings
+- remark-gfm
+- remark-flexible-toc
+- remark-normalize-headings
+- rehype-highlight
+- rehype-shiki
+
+We will continue to add more plugins in the future to make the article more beautiful and practical.
+
+
+## Side toolbar
+
+> This function is temporarily uncontrollable, and the display is fixed on the left side of the page.
+
+This feature is still in its early stages and can only return to the previous page and scroll to comments.
+
+
+## Back to top
+
+> This function is temporarily uncontrollable, and the display is fixed on the right side of the page.
+
+Now you can easily return to the top with just one click, without the need to slowly slide to the top anymore!
+
+
+## Final words
+
+I have made some adjustments to the design and functionality of the page, and I hope everyone will enjoy this update.
+If you have any suggestions or ideas, please feel free to leave a comment in the comments section and I will reply to you as soon as possible.
+Finally, thank you all for your support of NextBlog. I will continue to work hard to provide a better experience for everyone.
+
+Thank you for your support! 🙏
+
+If you like this project, please give me a star ✨ [GitHub](https://github.com/imyuanli/next-blog). Thank you!
+
+
+

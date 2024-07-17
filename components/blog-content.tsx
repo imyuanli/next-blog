@@ -43,7 +43,7 @@ const BlogContent = ({posts}: any) => {
                 <div className={'space-y-4'} key={index}>
                     <div className={'space-y-4'}>
                         <div className={'block md:hidden'}>
-                            <Time date={post.time}/>
+                            <Time date={post.date}/>
                         </div>
                         <CardTitle className={'not-prose space-x-4 flex justify-start items-center'}>
                             <Link className={'hover:underline hover:underline-offset-8'} href={`/blog/${post.id}`}>
@@ -57,7 +57,7 @@ const BlogContent = ({posts}: any) => {
                         </CardTitle>
                         <div className={'flex flex-col md:flex-row md:space-x-4'}>
                             <div className={'hidden md:block'}>
-                                <Time date={post.time}/>
+                                <Time date={post.date}/>
                             </div>
                             <div className={'space-x-2'}>
                                 {post?.tags?.map((tag: string, index: number) => (

@@ -13,11 +13,11 @@ const Title = () => {
     // 如果是博客页面并带有tag参数
     const searchParams = useSearchParams()
     const tag = searchParams.get('tag')
-    if(name === 'blog' && tag) {
-        return <div>
+    if (name === 'blog' && tag) {
+        return <div className={'container pt-8'}>
             <h1>{tag}</h1>
             <p className={'text-zinc-600'}>
-                 This is a list of all posts with the tag {tag}.
+                This is a list of all posts with the tag {tag}.
             </p>
             <Separator/>
         </div>
@@ -27,9 +27,9 @@ const Title = () => {
 
     return (
         data && <div className={'container pt-8'}>
-          <h1>{data?.title}</h1>
+            <h1>{data?.title}</h1>
             {data?.description && <p className={'text-zinc-600'}>{data?.description}</p>}
-          <Separator/>
+            <Separator/>
         </div>
     );
 }

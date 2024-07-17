@@ -13,7 +13,7 @@ const Comments = () => {
     const [show, setShow] = useState(false)
 
     return (
-        <>
+        <div id={"comment"}>
             {!show &&
                 <Button className={'w-full'} variant={'outline'} onClick={() => setShow(true)}>
                     Show Comments
@@ -25,7 +25,7 @@ const Comments = () => {
                     {engine === "utterances" && <Utterances config={comment[engine]}/>}
                 </>
             }
-        </>
+        </div>
     )
 
 };

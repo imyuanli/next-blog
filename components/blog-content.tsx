@@ -46,7 +46,7 @@ const BlogContent = ({posts}: any) => {
                             <Time date={post.time}/>
                         </div>
                         <CardTitle className={'not-prose space-x-4 flex justify-start items-center'}>
-                            <Link className={'underline underline-offset-4'} href={`/blog/${post.id}`}>
+                            <Link className={'hover:underline hover:underline-offset-8'} href={`/blog/${post.id}`}>
                                 {post.title}
                             </Link>
                             {post.pinned && (

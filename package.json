@@ -1,6 +1,6 @@
 {
   "name": "next-blog",
-  "version": "0.3.5",
+  "version": "0.4.0",
   "description": "A minimal, responsive, and easy-to-use blog template for Next.js",
   "main": "index.js",
   "repository": "https://github.com/imyuanli/next-blog",

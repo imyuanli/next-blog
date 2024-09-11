@@ -20,7 +20,7 @@ export const getPostsData = () => {
             stats: readingTime(matterResult.content)
         }
     }).filter((post: any) => !post.draft)
-        .filter((post: any) => dayjs(post.date).isBefore(dayjs()))
+
     const {pinnedPosts, commonPosts} = posts.reduce((acc: any, post: any) => {
         if (post.pinned) {
             acc.pinnedPosts.push(post)

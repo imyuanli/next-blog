@@ -12,6 +12,7 @@ import {
     PaginationNext,
     PaginationPrevious
 } from "@/components/ui/pagination";
+import dayjs from "dayjs";
 
 const getHref = (tag: string | null, page: number) => {
     if (tag) {
@@ -22,6 +23,9 @@ const getHref = (tag: string | null, page: number) => {
 }
 
 const BlogContent = ({posts}: any) => {
+    // 过滤掉未来的文章
+    posts = posts.filter((post: any) => dayjs(post.date).isBefore(dayjs()))
+
     // 查询参数
     const {blog: {pagination}} = siteData
     const searchParams = useSearchParams()

@@ -13,20 +13,30 @@ import {
     PaginationPrevious
 } from "@/components/ui/pagination";
 
+const getHref = (tag: string | null, page: number) => {
+    if (tag) {
+        return `/blog?tag=${tag}&page=${page}`
+    } else {
+        return `/blog?page=${page}`
+    }
+}
 
 const BlogContent = ({posts}: any) => {
-    const allPostCount = posts.length || 0
+    // 查询参数
+    const {blog: {pagination}} = siteData
     const searchParams = useSearchParams()
-    const currentTag = searchParams.get('tag')
 
+    // 如果有标签 过滤出当前标签的文章
+    const currentTag = searchParams.get('tag')
     if (currentTag) {
-        posts = posts.filter((post: any) => post.tags.includes(currentTag))
+        posts = [...posts.filter((post: any) => post.tags.includes(currentTag))]
     }
 
-    const page: any = Number(searchParams.get('page')) || 1
-    const {blog: {pagination}} = siteData
+    // 当前显示的文章数量
+    const allPostCount = posts.length || 0
 
     // 如果分页开启
+    const page: any = Number(searchParams.get('page')) || 1
     if (pagination?.enabled) {
         if (pagination?.engine === 'default') {
             posts = posts.slice((page - 1) * pagination.pageSize, page * pagination.pageSize)
@@ -61,7 +71,7 @@ const BlogContent = ({posts}: any) => {
                             </div>
                             <div className={'space-x-2'}>
                                 {post?.tags?.map((tag: string, index: number) => (
-                                    <Link href={`/blog?tag=${tag}`}>
+                                    <Link href={getHref(tag, 1)}>
                                         <Badge key={index} variant={currentTag == tag ? "secondary" : "outline"}>
                                             #{tag}
                                         </Badge>
@@ -89,22 +99,22 @@ const BlogContent = ({posts}: any) => {
                         <div className={'w-full grid grid-cols-3 justify-items-center items-center'}>
                             <div className={'w-full flex justify-start'}>
                                 {page > 1 && (
-                                    <PaginationPrevious href={`/blog?page=${page - 1}`}/>
+                                    <PaginationPrevious href={getHref(currentTag, page - 1)}/>
                                 )}
                             </div>
                             <div>
                                 {page} of {Math.ceil(allPostCount / pagination.pageSize)}
                             </div>
                             <div className={'w-full flex justify-end'}>
-                                {page < Math.ceil(allPostCount / pagination.pageSize) && (
-                                    <PaginationNext href={`/blog?page=${page + 1}`}/>
+                                {Math.ceil(allPostCount / pagination.pageSize) > page && (
+                                    <PaginationNext href={getHref(currentTag, page + 1)}/>
                                 )}
                             </div>
                         </div>
                     )}
                     {pagination?.engine === 'loadMore' && (
                         (allPostCount > page * pagination.pageSize) &&
-                        <Link href={`/blog?page=${page + 1}`}>
+                        <Link href={getHref(currentTag, page + 1)}>
                             <Button variant={"outline"} className={'w-full'}>
                                 Load More ···
                             </Button>

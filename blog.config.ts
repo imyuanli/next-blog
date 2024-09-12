@@ -214,7 +214,26 @@ const siteData: any = {
     analytics: {
         enabled: true,
         engine: "vercel",
-    }
+    },
+
+    // newsletter
+    // you can use mailchimp or other newsletter services
+    newsletter: {
+        engine: "buttondown", // "" | "buttondown"
+
+        title: "Subscribe to the newsletter", // required
+        description: "Stay updated on new releases and features, guides, and case studies.",
+
+        position: {
+            footer: true, // in the footer
+            blog: true, // on the blog list page
+        },
+
+        // buttondown doc: https://buttondown.com
+        buttondown: {
+            username: "yuanli", //  your buttondown username
+        },
+    },
 }
 
 export default siteData

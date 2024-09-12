@@ -5,11 +5,11 @@ import {CardDescription, CardTitle} from "@/components/ui/card";
 import {Badge} from "@/components/ui/badge";
 import {Button} from "@/components/ui/button";
 import {Github} from "lucide-react";
-import siteData from "@/blog.config";
+import {blogConfig} from "@/blog.config";
 
 
 const ProjectContent = () => {
-    const {project: {projects, getStatus}} = siteData;
+    const {projects, getStatus} = blogConfig.project
 
     return (
         <>

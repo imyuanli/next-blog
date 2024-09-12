@@ -1,10 +1,12 @@
+'use client';
+
+import {pluginConfig} from "@/blog.config";
 import {Analytics as VercelAnalytics} from "@vercel/analytics/react"
-import blogConfig from "@/blog.config";
 
 
 const Analytics = () => {
-    const {enabled, engine} = blogConfig.analytics
-    if (!enabled) return null
+    const {engine} = pluginConfig.analytics
+    if (!engine) return null
 
     return (
         <>

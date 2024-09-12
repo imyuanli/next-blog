@@ -1,10 +1,10 @@
 'use client'
 
 import ButtonDown from "@/plugins/newsletter/buttondown";
-import blogConfig from "@/blog.config";
+import {pluginConfig} from "@/blog.config";
 
 const Newsletter = () => {
-    const {engine} = blogConfig.newsletter
+    const {engine} = pluginConfig.newsletter
     if (!engine) return null
 
     return (

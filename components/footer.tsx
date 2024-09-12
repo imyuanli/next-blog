@@ -1,4 +1,4 @@
-import siteData from "@/blog.config";
+import {blogConfig} from "@/blog.config";
 import SocialList from "@/components/social-list";
 import Link from "next/link";
 import {Separator} from "@/components/ui/separator";
@@ -6,7 +6,11 @@ import Newsletter from "@/plugins/newsletter";
 import {Label} from "@/components/ui/label";
 
 const Footer = () => {
-    const {author, footer: {isShow, isShowPoweredBy}, newsletter: {title, description, position}} = siteData
+    const {
+        author,
+        footer: {isShow, isShowPoweredBy},
+        newsletter: {title, description, position}
+    } = blogConfig
 
     return (
         isShow && <div>
@@ -14,7 +18,8 @@ const Footer = () => {
             <footer className={'container py-8 space-y-4'}>
                 {position.footer &&
                     <>
-                        <div className={"flex justify-between items-center flex-col md:flex-row space-y-4 md:space-y-0"}>
+                        <div
+                            className={"flex justify-between items-center flex-col md:flex-row space-y-4 md:space-y-0"}>
                             <div className={"flex justify-center  items-center md:items-start flex-col"}>
                                 <Label className={'text-base'}>
                                     {title && "Subscribe to the newsletter"}

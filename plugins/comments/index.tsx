@@ -1,15 +1,16 @@
 'use client'
 
-import siteData from "@/blog.config";
+import {pluginConfig} from "@/blog.config";
 import {useEffect, useRef, useState} from "react";
 import Utterances from "@/plugins/comments/utterances";
 import Giscus from "@/plugins/comments/giscus";
 import {useInViewport} from "ahooks";
 
 const Comments = () => {
-    const {blog: {comment}} = siteData
-    if (!comment?.enabled) return null
+    const {comment} = pluginConfig
+    if (!comment?.engine) return null
     const engine = comment?.engine
+
     const ref = useRef(null);
     const [show, setShow] = useState(false)
     const [inViewport] = useInViewport(ref);

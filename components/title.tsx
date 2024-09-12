@@ -2,7 +2,7 @@
 
 import {Separator} from "@/components/ui/separator";
 import {usePathname, useSearchParams} from "next/navigation";
-import siteData from "@/blog.config";
+import {blogConfig} from "@/blog.config";
 import Newsletter from "@/plugins/newsletter";
 
 
@@ -11,7 +11,7 @@ const Title = () => {
     const nameArr = pathname.split('/')
     const name = nameArr[nameArr.length - 1]
 
-    const data = name ? siteData[name] : siteData.home
+    const data = name ? blogConfig[name] : blogConfig.home
 
     // 如果是博客页面并带有tag参数
     const searchParams = useSearchParams()
@@ -31,7 +31,6 @@ const Title = () => {
             <Separator/>
         </div>
     }
-
 
     return (
         data && <div className={'container pt-8'}>

@@ -1,15 +1,15 @@
 import {type ClassValue, clsx} from "clsx"
 import {twMerge} from "tailwind-merge"
-import siteData from "@/blog.config";
+import {blogConfig} from "@/blog.config";
 
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs))
 }
 
 export const getMetadata = (type: string) => {
-    const {title} = siteData
+    const {title} = blogConfig
     return {
-        title: `${siteData[type].title}- ${title}`,
-        description: siteData[type].description,
+        title: `${blogConfig[type].title}- ${title}`,
+        description: blogConfig[type].description,
     }
 }

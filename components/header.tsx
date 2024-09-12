@@ -1,6 +1,6 @@
 'use client';
 
-import siteData from "@/blog.config";
+import {blogConfig} from "@/blog.config";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 import {Button} from "@/components/ui/button";
@@ -17,7 +17,7 @@ import {useTheme} from "next-themes";
 import Search from "@/plugins/search";
 
 const Header = () => {
-    const {routes, logo, githubRepo} = siteData
+    const {routes, logo, githubRepo} = blogConfig
 
     //高亮导航栏
     const pathname = usePathname()

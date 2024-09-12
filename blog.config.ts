@@ -2,8 +2,13 @@
 
 import Intro from "./components/intro.mdx" // introduction or about me
 
-const siteData: any = {
-    author: "yuanli",  // author name
+// Page Config
+// The following is the configuration of the blog, including the author, title, description, and other settings.
+const blogConfig: any = {
+    // author name
+    author: "yuanli",
+
+    // Logo
     logo: {
         // how to change the favicon of the website?
         // change the app/favicon.ico file directly，or refer to the document below
@@ -45,63 +50,31 @@ const siteData: any = {
         },
     ],
 
+    // socials links
+    socials: {
+        email: "286547316@qq.com",
+        github: "https://github.com/imyuanli",
+        twitter: "https://twitter.com",
+        linkedin: "",
+        facebook: "",
+        instagram: "",
+        youtube: "",
+    },
+
     // home page config
     home: {
         title: "Welcome to NextBlog",
         description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
 
         // introduction or about me
+        // Why use components instead of configurations? Because this makes the homepage more customizable instead of a hard-coded template.
         intro: Intro, // file path of the introduction
-
-        socials: {
-            email: "286547316@qq.com",
-            github: "https://github.com/imyuanli",
-            twitter: "https://twitter.com",
-            linkedin: "",
-            facebook: "",
-            instagram: "",
-            youtube: "",
-        },
     },
 
     // blog page config
     blog: {
         title: 'Changelog & Blogs',
         description: 'Regarding the update logs of NextBlog, blogs, and others, etc.',
-        comment: {
-            enabled: true,
-            engine: "giscus", // giscus | utterances
-            // giscus doc: https://giscus.app
-            giscus: {
-                repo: "imyuanli/next-blog",
-                repoId: "R_kgDOKTZ_kQ",
-                category: "Announcements",
-                categoryId: "DIC_kwDOKTZ_kc4CfMXK",
-                mapping: "pathname",
-                reactionsEnabled: "1",
-                emitMetadata: "0",
-                inputPosition: "top",
-                theme: "light",
-                lang: "en",
-                loading: "lazy",
-            },
-
-            // utterances doc: https://utteranc.es
-            utterances: {
-                src: "https://utteranc.es/client.js",
-                repo: "imyuanli/next-blog",
-                "issue-term": "pathname",
-                theme: "github-light",
-                crossorigin: "anonymous",
-                label: "",
-                async: true
-            }
-        },
-        pagination: {
-            enabled: true,
-            pageSize: 5,
-            engine: "default", // default:pagination button | loadMore:loading more button
-        }
     },
 
     // tags page config
@@ -191,33 +164,65 @@ const siteData: any = {
         ],
     },
 
-    // search config
-    search: {
-        enabled: true,
-        engine: "cmdk", //  cmdk | algolia
-        // todo algolia search
-        // algolia: {
-        //     appId: "",
-        //     apiKey: "",
-        // }
-    },
-
-    // footer config
+    // Footer
     footer: {
         isShow: true,
         // whether to display the "Powered by NextBlog" in the footer，you can set it to false，but I hope you can keep it，thank you！
         isShowPoweredBy: true,
     },
+}
+
+// Plugins Config
+// Why define the following as plugins? Because these are some dispensable functions that can be added or removed at will.
+const pluginConfig = {
+    // Comment
+    comment: {
+        engine: "giscus", // "" | giscus | utterances
+
+        // giscus doc: https://giscus.app
+        giscus: {
+            repo: "imyuanli/next-blog",
+            repoId: "R_kgDOKTZ_kQ",
+            category: "Announcements",
+            categoryId: "DIC_kwDOKTZ_kc4CfMXK",
+            mapping: "pathname",
+            reactionsEnabled: "1",
+            emitMetadata: "0",
+            inputPosition: "top",
+            theme: "light",
+            lang: "en",
+            loading: "lazy",
+        },
+
+        // utterances doc: https://utteranc.es
+        utterances: {
+            src: "https://utteranc.es/client.js",
+            repo: "imyuanli/next-blog",
+            "issue-term": "pathname",
+            theme: "github-light",
+            crossorigin: "anonymous",
+            label: "",
+            async: true
+        }
+    },
+
+    // Pagination
+    pagination: {
+        engine: "default", // default:pagination button | loadMore:loading more button
+        pageSize: 5,
+    },
+
+    // Search
+    search: {
+        engine: "cmdk", //  "" | "cmdk"
+    },
 
     //   Analytics
-    //   you can use vercel analytics or other analytics services
     analytics: {
-        enabled: true,
-        engine: "vercel",
+        engine: "vercel", // "" | "vercel"
     },
 
     // newsletter
-    // you can use mailchimp or other newsletter services
     newsletter: {
         engine: "buttondown", // "" | "buttondown"
 
@@ -236,4 +241,7 @@ const siteData: any = {
     },
 }
 
-export default siteData
+export {
+    blogConfig,
+    pluginConfig
+}

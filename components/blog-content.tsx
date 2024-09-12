@@ -7,7 +7,7 @@ import Time from "@/components/time";
 import Link from "next/link";
 import {ArrowRight} from "lucide-react";
 import {useSearchParams} from "next/navigation";
-import siteData from "@/blog.config";
+import {pluginConfig} from "@/blog.config";
 import {
     PaginationNext,
     PaginationPrevious
@@ -27,7 +27,7 @@ const BlogContent = ({posts}: any) => {
     posts = posts.filter((post: any) => dayjs(post.date).isBefore(dayjs()))
 
     // 查询参数
-    const {blog: {pagination}} = siteData
+    const pagination = pluginConfig.pagination
     const searchParams = useSearchParams()
 
     // 如果有标签 过滤出当前标签的文章
@@ -41,7 +41,7 @@ const BlogContent = ({posts}: any) => {
 
     // 如果分页开启
     const page: any = Number(searchParams.get('page')) || 1
-    if (pagination?.enabled) {
+    if (pagination?.engine) {
         if (pagination?.engine === 'default') {
             posts = posts.slice((page - 1) * pagination.pageSize, page * pagination.pageSize)
         }
@@ -97,7 +97,7 @@ const BlogContent = ({posts}: any) => {
                 </div>
             ))}
             {(
-                pagination?.enabled &&
+                pagination?.engine &&
                 <div className={"pt-8"}>
                     {pagination?.engine === 'default' && (
                         <div className={'w-full grid grid-cols-3 justify-items-center items-center'}>

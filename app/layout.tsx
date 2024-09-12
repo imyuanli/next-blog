@@ -2,7 +2,7 @@ import type {Metadata} from "next";
 import {Inter} from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
-import siteData from "@/blog.config";
+import {blogConfig} from "@/blog.config";
 import ProviderTheme from "@/provider/provider-theme";
 import Title from "@/components/title";
 import Footer from "@/components/footer";
@@ -12,8 +12,8 @@ import Analytics from "@/plugins/analytics";
 const inter = Inter({subsets: ["latin"]});
 
 export const metadata: Metadata = {
-    title: siteData.title,
-    description: siteData.description,
+    title: blogConfig.title,
+    description: blogConfig.description,
 };
 
 export default function RootLayout({

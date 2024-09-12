@@ -1,9 +1,9 @@
 import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
-import blogConfig from "@/blog.config";
+import {pluginConfig} from "@/blog.config";
 
 const ButtonDown = () => {
-    const {buttondown: {username}} = blogConfig.newsletter
+    const {buttondown: {username}} = pluginConfig.newsletter
 
     return (
         <form

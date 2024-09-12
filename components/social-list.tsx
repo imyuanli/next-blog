@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import {Facebook, Github, Instagram, Linkedin, Mail, Twitter, Youtube} from "lucide-react";
-import siteData from "@/blog.config";
+import {blogConfig} from "@/blog.config";
 import {cn} from "@/lib/utils";
 
 const icons: any = {
@@ -17,7 +17,7 @@ const icons: any = {
 
 
 const SocialList = ({isFooter}: any) => {
-    const {home: {socials}} = siteData;
+    const socials = blogConfig.socials;
 
     return (
         <div className={cn("flex items-center space-x-8", {

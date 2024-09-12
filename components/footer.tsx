@@ -19,7 +19,7 @@ const Footer = () => {
                                 <Label className={'text-base'}>
                                     {title && "Subscribe to the newsletter"}
                                 </Label>
-                                {description && <p className={"text-sm text-gray-500"}>{description}</p>}
+                                {description && <p className={"text-sm text-gray-500 text-center"}>{description}</p>}
                             </div>
                             <Newsletter/>
                         </div>

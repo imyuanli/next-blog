@@ -208,6 +208,13 @@ const siteData: any = {
         // whether to display the "Powered by NextBlog" in the footer，you can set it to false，but I hope you can keep it，thank you！
         isShowPoweredBy: true,
     },
+
+    //   Analytics
+    //   you can use vercel analytics or other analytics services
+    analytics: {
+        enabled: true,
+        engine: "vercel",
+    }
 }
 
 export default siteData

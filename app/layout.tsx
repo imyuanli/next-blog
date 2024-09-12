@@ -1,13 +1,13 @@
 import type {Metadata} from "next";
 import {Inter} from "next/font/google";
 import "./globals.css";
-import {Separator} from "@/components/ui/separator";
 import Header from "@/components/header";
 import siteData from "@/blog.config";
 import ProviderTheme from "@/provider/provider-theme";
 import Title from "@/components/title";
 import Footer from "@/components/footer";
 import BackToTop from "@/components/back-to-top";
+import Analytics from "@/plugins/analytics";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -34,6 +34,7 @@ export default function RootLayout({
             </div>
             <Footer/>
             <BackToTop/>
+            <Analytics/>
             </body>
         </ProviderTheme>
         </html>

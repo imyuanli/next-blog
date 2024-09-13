@@ -77,7 +77,7 @@ const blogConfig: any = {
         description: 'Regarding the update logs of NextBlog, blogs, and others, etc.',
 
         // pinnedSort is used to sort the pinned articles, the default is "desc" (descending), you can also set it to "asc" (ascending)
-        pinnedSort: "asc", // "asc" | "desc"
+        pinnedSort: "desc", // "asc" | "desc"
     },
 
     // tags page config

@@ -16,7 +16,7 @@ const ButtonDown = () => {
         >
             <div className="flex w-full max-w-sm items-center flex-col md:flex-row">
                 <Input
-                    className={"min-w-72 mb-2 mr-0 md:mb-0 md:mr-2"}
+                    className={"min-w-72 mb-4 mr-0 md:mb-0 md:mr-4"}
                     type="email"
                     placeholder="Subscribe via email"
                     name=" email"

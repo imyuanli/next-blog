@@ -8,26 +8,14 @@ import Link from "next/link";
 import {ArrowRight} from "lucide-react";
 import {useSearchParams} from "next/navigation";
 import {pluginConfig} from "@/blog.config";
-import {
-    PaginationNext,
-    PaginationPrevious
-} from "@/components/ui/pagination";
 import dayjs from "dayjs";
-
-const getHref = (tag: string | null, page: number) => {
-    if (tag) {
-        return `/blog?tag=${tag}&page=${page}`
-    } else {
-        return `/blog?page=${page}`
-    }
-}
+import Pagination from "@/plugins/pagination";
 
 const BlogContent = ({posts}: any) => {
     // 过滤掉未来的文章
     posts = posts.filter((post: any) => dayjs(post.date).isBefore(dayjs()))
 
     // 查询参数
-    const pagination = pluginConfig.pagination
     const searchParams = useSearchParams()
 
     // 如果有标签 过滤出当前标签的文章
@@ -41,13 +29,22 @@ const BlogContent = ({posts}: any) => {
 
     // 如果分页开启
     const page: any = Number(searchParams.get('page')) || 1
-    if (pagination?.engine) {
-        if (pagination?.engine === 'default') {
-            posts = posts.slice((page - 1) * pagination.pageSize, page * pagination.pageSize)
+    const {engine, pageSize} = pluginConfig.pagination
+    if (engine) {
+        if (engine === 'default') {
+            posts = posts.slice((page - 1) * pageSize, page * pageSize)
         }
+        if (engine === 'loadMore') {
+            posts = posts.slice(0, page * pageSize)
+        }
+    }
 
-        if (pagination?.engine === 'loadMore') {
-            posts = posts.slice(0, page * pagination.pageSize)
+    // 生成分页链接
+    const generateHref = (page: number) => {
+        if (currentTag) {
+            return `/blog?tag=${currentTag}&page=${page}`
+        } else {
+            return `/blog?page=${page}`
         }
     }
 
@@ -75,7 +72,7 @@ const BlogContent = ({posts}: any) => {
                             </div>
                             <div className={'space-x-2'}>
                                 {post?.tags?.map((tag: string, index: number) => (
-                                    <Link href={getHref(tag, 1)}>
+                                    <Link href={`/blog?tag=${tag}`}>
                                         <Badge key={index} variant={currentTag == tag ? "secondary" : "outline"}>
                                             #{tag}
                                         </Badge>
@@ -96,36 +93,7 @@ const BlogContent = ({posts}: any) => {
                     </div>
                 </div>
             ))}
-            {(
-                pagination?.engine &&
-                <div className={"pt-8"}>
-                    {pagination?.engine === 'default' && (
-                        <div className={'w-full grid grid-cols-3 justify-items-center items-center'}>
-                            <div className={'w-full flex justify-start'}>
-                                {page > 1 && (
-                                    <PaginationPrevious href={getHref(currentTag, page - 1)}/>
-                                )}
-                            </div>
-                            <div>
-                                {page} of {Math.ceil(allPostCount / pagination.pageSize)}
-                            </div>
-                            <div className={'w-full flex justify-end'}>
-                                {Math.ceil(allPostCount / pagination.pageSize) > page && (
-                                    <PaginationNext href={getHref(currentTag, page + 1)}/>
-                                )}
-                            </div>
-                        </div>
-                    )}
-                    {pagination?.engine === 'loadMore' && (
-                        (allPostCount > page * pagination.pageSize) &&
-                        <Link href={getHref(currentTag, page + 1)}>
-                            <Button variant={"outline"} className={'w-full'}>
-                                Load More ···
-                            </Button>
-                        </Link>
-                    )}
-                </div>
-            )}
+            <Pagination allCount={allPostCount} generateHref={generateHref}/>
         </>
     );
 }

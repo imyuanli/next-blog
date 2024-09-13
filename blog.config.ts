@@ -208,7 +208,7 @@ const pluginConfig = {
 
     // Pagination
     pagination: {
-        engine: "default", // default:pagination button | loadMore:loading more button
+        engine: "", // "" | default:pagination button | loadMore:loading more button
         pageSize: 5,
     },
 

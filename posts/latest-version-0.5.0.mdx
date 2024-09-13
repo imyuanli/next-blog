@@ -1,0 +1,80 @@
+---
+title: "Latest version 0.5.0 !"
+summary: "This update is a breaking change, please read the documentation carefully"
+date: 2024-09-14
+tags: ["Changelog"]
+pinned: 2
+---
+
+Hey folks! 🎉 I’ve made some exciting updates and tweaks to enhance your blogging experience.
+This update is a breaking change, so please read the documentation carefully.
+We’ve made some significant changes to the configuration and added new features to make your blog even better. 🚀
+
+> It is worth mentioning that the article you are seeing is a scheduled article.It was uploaded on 2024-09-13, but will be published on 2024-09-14.
+
+## Features ✨
+
+### Config Simplification
+
+I have made adjustments to the level and structure of the blog configuration file.
+If your blog is based on the previous version, you may need to reconfigure it.
+For details, please refer to the `blog.config.ts` file.
+
+The changes to the configuration file mainly divide the configuration file into two parts, one is the basic blog configuration, and the other is the plugin configuration.
+
+This is to prepare for future plug-in development and make the configuration file clearer.
+
+### Vercel Analytics
+
+I’ve integrated Vercel Analytics to help you gain insights into your blog's performance.
+This addition will help you track your audience better and optimize accordingly. 📈
+
+Currently, I only support Vercel Analytics.This feature is enabled by default in your blog, but you need to enable Analytics in the project on vercel.com.
+For details, can be found in the [Vercel documentation](https://vercel.com/docs/analytics).
+If you don't want to use this feature, you can disable it in the `blog.config.ts` file.
+
+### New Newsletter Feature
+
+Yes, I’ve introduced a brand new newsletter feature! Sign up and never miss an update.
+You’ll now find a shiny new newsletter section in the footer and right next to the blog title. Stay updated with ease! 📰
+
+I've made configurations as flexible as possible so you can adjust them to suit your needs.
+Please refer to the `newsletter` plugin configuration in the `blog.config.ts` file for specific configuration.
+
+Currently only [Buttondown](https://buttondown.email) is supported.
+If you want to use this feature, you need to register an account on Buttondown.
+
+### Pagination Plugin
+
+I’ve split the pagination functionality into its own plugin! This should make things a lot cleaner and easier to manage.
+
+The pagination plugin is enabled by default, and you can configure the plugin in the `blog.config.ts` file.
+
+### Article top order
+
+I've added a new configuration item `pinnedSort` in the `blog.config.ts` file.
+You can set the order of the pinned articles at the top of the article list.
+
+It has two values:
+ - desc：The larger the value, the higher the article ranking. This is the default value.
+ - asc：The smaller the value, the higher the article ranking
+
+
+## Bug Fixes 🛠️
+
+- **Future Posts Bug**: Fixed the pesky bug that was preventing future dated posts from showing up. They’re back! 🎉
+- **Pagination Error**: Resolved the issue with pagination for all articles in a category. Now you can browse without any hiccups.
+- **Comment Toggle**: I’ve removed the manual toggle for comments. Let’s keep it simple!
+
+### Final Thoughts
+
+These changes are all about making your blogging experience smoother and more enjoyable. I truly hope you find these updates beneficial.
+If you have suggestions or ideas, feel free to drop a comment! Your feedback is always welcome.
+
+Thanks for your continued support! 🙏
+
+If you like this project, please give me a star ✨ [GitHub](https://github.com/imyuanli/next-blog). Thank you!
+
+```
+Feel free to tweak any part of the writing to better reflect your personal style or add further details!
+```

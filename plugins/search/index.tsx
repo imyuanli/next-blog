@@ -1,16 +1,15 @@
 'use client';
 
-import siteData from "@/blog.config";
+import {pluginConfig} from "@/blog.config";
 import {useEffect, useState} from "react";
 import {Button} from "@/components/ui/button";
 import Cmdk from "@/plugins/search/Cmdk";
 import {Command, Search as SearchIcon} from "lucide-react";
 
 const Search = () => {
-    const {search} = siteData;
-    if (!search?.enabled) return null;
+    const {engine} = pluginConfig.search;
+    if (!engine) return null;
     const [open, setOpen] = useState(false)
-    const engines = search?.engine
 
     useEffect(() => {
         const down = (e: KeyboardEvent) => {
@@ -46,7 +45,7 @@ const Search = () => {
                 </Button>
             </div>
             {open &&
-                engines === "cmdk" && <Cmdk open={open} setOpen={setOpen}/>
+                engine === "cmdk" && <Cmdk open={open} setOpen={setOpen}/>
             }
         </>
     );

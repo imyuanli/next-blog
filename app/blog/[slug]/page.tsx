@@ -27,6 +27,7 @@ import {
 
 const getPost = async (slug: string) => {
     const post: any = getPostsData().find((post) => post.id === slug)
+    if (!post) return null
     // 获取目录数据
     const file = await remark()
         .use(remarkNormalizeHeadings)
@@ -47,6 +48,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({params}: any) {
     const post: any = await getPost(params.slug)
+    if (!post) return notFound()
     return {
         title: post.title,
         description: post.summary,

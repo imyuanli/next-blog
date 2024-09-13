@@ -1,27 +1,30 @@
 'use client'
 
-import siteData from "@/blog.config";
-import {useState} from "react";
-import {Button} from "@/components/ui/button";
+import {pluginConfig} from "@/blog.config";
+import {useEffect, useRef, useState} from "react";
 import Utterances from "@/plugins/comments/utterances";
 import Giscus from "@/plugins/comments/giscus";
+import {useInViewport} from "ahooks";
 
 const Comments = () => {
-    const {blog: {comment}} = siteData
-    if (!comment?.enabled) return null
+    const {comment} = pluginConfig
+    if (!comment?.engine) return null
     const engine = comment?.engine
+
+    const ref = useRef(null);
     const [show, setShow] = useState(false)
+    const [inViewport] = useInViewport(ref);
+    useEffect(() => {
+        if (inViewport) {
+            setShow(true)
+        }
+    }, [inViewport])
 
     return (
-        <div id={"comment"}>
-            {!show &&
-                <Button className={'w-full'} variant={'outline'} onClick={() => setShow(true)}>
-                    Show Comments
-                </Button>
-            }
+        <div ref={ref} id={"comment"}>
             {show &&
                 <>
-                    {engine === "giscus" && <Giscus id="comments" config={comment[engine]}/>}
+                    {engine === "giscus" && <Giscus config={comment[engine]}/>}
                     {engine === "utterances" && <Utterances config={comment[engine]}/>}
                 </>
             }

@@ -3,6 +3,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import readingTime from "reading-time";
 import dayjs from "dayjs";
+import {blogConfig} from "@/blog.config";
 
 export const getPostsData = () => {
     const postsDirectory = path.join(process.cwd(), 'posts')
@@ -20,7 +21,7 @@ export const getPostsData = () => {
             stats: readingTime(matterResult.content)
         }
     }).filter((post: any) => !post.draft)
-        .filter((post: any) => dayjs(post.date).isBefore(dayjs()))
+
     const {pinnedPosts, commonPosts} = posts.reduce((acc: any, post: any) => {
         if (post.pinned) {
             acc.pinnedPosts.push(post)
@@ -29,9 +30,16 @@ export const getPostsData = () => {
         }
         return acc
     }, {pinnedPosts: [], commonPosts: []})
+    const {pinnedSort} = blogConfig.blog
 
     return [
-        ...pinnedPosts.sort((a: any, b: any) => a.pinned - b.pinned),
+        ...pinnedPosts.sort((a: any, b: any) => {
+            if (pinnedSort === 'asc') {
+                return a.pinned - b.pinned
+            } else {
+                return b.pinned - a.pinned
+            }
+        }),
         ...commonPosts.sort((a: any, b: any) => dayjs(a.date).isBefore(dayjs(b.date)) ? 1 : -1)
     ]
 }

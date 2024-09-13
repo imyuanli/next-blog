@@ -75,6 +75,9 @@ const blogConfig: any = {
     blog: {
         title: 'Changelog & Blogs',
         description: 'Regarding the update logs of NextBlog, blogs, and others, etc.',
+
+        // pinnedSort is used to sort the pinned articles, the default is "desc" (descending), you can also set it to "asc" (ascending)
+        pinnedSort: "asc", // "asc" | "desc"
     },
 
     // tags page config
@@ -220,6 +223,7 @@ const pluginConfig = {
     //   Analytics
     analytics: {
         engine: "vercel", // "" | "vercel"
+        // vercel doc: https://vercel.com/docs/analytics
     },
 
     // newsletter

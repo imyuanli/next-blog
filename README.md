@@ -1,8 +1,7 @@
 # NextBlog
 
-> ⚠️ **Tip**: I have been looking for a job recently, so I will not update any new features for the time being. 
-> I have planned many features to improve NextBlog and will continue to update once I am stable. 
-> Don't worry about the project stopping, please stay tuned !
+> ✅ **Tip**: I'm sorry, since I joined a new company, I was very busy with the initial work and didn't have extra time to improve the project.
+>  When I have some free time, I will make a major version upgrade for it, and I will also bring another new project, so stay tuned.
  
 A minimal, responsive, and easy-to-use blog template. 
 

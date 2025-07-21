@@ -6,7 +6,7 @@ import Intro from "./components/intro.mdx" // introduction or about me
 // The following is the configuration of the blog, including the author, title, description, and other settings.
 const blogConfig: any = {
     // author name
-    author: "yuanli",
+    author: "xqijy_pvuza",
 
     // Logo
     logo: {
@@ -23,48 +23,35 @@ const blogConfig: any = {
     },
 
     // website title
-    title: "NextBlog",
+    title: "nextblog",
 
     // website description
-    description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
+    description: "a minimalist blog created with next.js ,shadcn-ui and tailwind.css",
 
     // light | dark
     theme: "light",
 
     // your blog repo || your github repo || null
-    githubRepo: "https://github.com/imyuanli/next-blog",
+    githubRepo: "https://github.com/zawa8/hblog1",
 
     // routes
-    routes: [
-        {
-            name: 'Blog',
-            value: '/blog'
-        },
-        {
-            name: 'Tags',
-            value: '/tags'
-        },
-        {
-            name: 'Projects',
-            value: '/project'
-        },
-    ],
+    routes: [ { name: 'blog', value: '/blog' }, { name: 'tags', value: '/tags' }, { name: 'prozects', value: '/project' }, ],
 
     // socials links
     socials: {
-        email: "286547316@qq.com",
-        github: "https://github.com/imyuanli",
+        email: "heksadesiml@gmail.com",
+        github: "https://github.com/zawa8",
         twitter: "https://twitter.com",
         linkedin: "",
-        facebook: "",
+        facebook: "https://fb.com/ztrabc",
         instagram: "",
         youtube: "",
     },
 
     // home page config
     home: {
-        title: "Welcome to NextBlog",
-        description: "A minimalist blog created with Next.js ,Shadcn-ui and Tailwind.css",
+        title: "welcome to nextblog",
+        description: "a minimalist blog created with next.js ,shadcn-ui and tailwind.css",
 
         // introduction or about me
         // Why use components instead of configurations? Because this makes the homepage more customizable instead of a hard-coded template.
@@ -73,8 +60,8 @@ const blogConfig: any = {
 
     // blog page config
     blog: {
-        title: 'Changelog & Blogs',
-        description: 'Regarding the update logs of NextBlog, blogs, and others, etc.',
+        title: 'changelog & blogs',
+        description: 'regarding the update logs of nextblog, blogs, and others, etc.',
 
         // pinnedSort is used to sort the pinned articles, the default is "desc" (descending), you can also set it to "asc" (ascending)
         pinnedSort: "desc", // "asc" | "desc"
@@ -82,14 +69,14 @@ const blogConfig: any = {
 
     // tags page config
     tags: {
-        title: 'Tags',
-        description: 'All of my tags, collected in alphabetical order.',
+        title: 'tags',
+        description: 'all of my tags, collected in alphabetical order.',
     },
 
     // project page config
     project: {
-        title: "Look what I've done",
-        description: "Some small tools made by oneself",
+        title: "look what i've done",
+        description: "some small tools made by oneself",
 
         // status color and text
         getStatus: (status: string) => {
@@ -184,14 +171,14 @@ const pluginConfig = {
 
         // giscus doc: https://giscus.app
         giscus: {
-            repo: "imyuanli/next-blog",
-            repoId: "R_kgDOKTZ_kQ",
-            category: "Announcements",
-            categoryId: "DIC_kwDOKTZ_kc4CfMXK",
+            repo: "zawa8/hblog1",
+            repoId: "R_kgDOPFocuQ",
+            category: "Ideas",
+            categoryId: "DIC_kwDOPFocuc4Csdhf",
             mapping: "pathname",
             reactionsEnabled: "1",
             emitMetadata: "0",
-            inputPosition: "top",
+            inputPosition: "bottom",
             theme: "light",
             lang: "en",
             loading: "lazy",
@@ -230,8 +217,8 @@ const pluginConfig = {
     newsletter: {
         engine: "buttondown", // "" | "buttondown"
 
-        title: "Subscribe to the newsletter", // required
-        description: "Stay updated on new releases and features, guides, and case studies.",
+        title: "subscribe to qhe newsletter", // required
+        description: "stay updated on new releases and features, guides, and case studies.",
 
         position: {
             footer: true, // in the footer
@@ -240,7 +227,7 @@ const pluginConfig = {
 
         // buttondown doc: https://buttondown.com
         buttondown: {
-            username: "yuanli", //  your buttondown username
+            username: "xqijy_pvuza", //  your buttondown username
         },
     },
 }

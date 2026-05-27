@@ -8,6 +8,7 @@ import Title from "@/components/title"
 import Footer from "@/components/footer"
 import BackToTop from "@/components/back-to-top"
 import Analytics from "@/plugins/analytics"
+import { Suspense } from "react"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -23,24 +24,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ProviderTheme>
-        <body className={"relative min-h-screen font-mono flex flex-col justify-between"}>
-          <div className={"flex-1"}>
-            <Header />
-            <main
-              className={
-                "md:mb-12 mb-8 w-full mx-auto max-w-7xl prose md:prose-lg dark:prose-invert"
-              }
-            >
-              <Title />
-              {children}
-            </main>
-          </div>
-          <Footer />
-          <BackToTop />
-          <Analytics />
-        </body>
-      </ProviderTheme>
+      <Suspense>
+        <ProviderTheme>
+          <body className={"relative min-h-screen font-mono flex flex-col justify-between"}>
+            <div className={"flex-1"}>
+              <Header />
+              <main
+                className={
+                  "md:mb-12 mb-8 w-full mx-auto max-w-7xl prose md:prose-lg dark:prose-invert"
+                }
+              >
+                <Title />
+                {children}
+              </main>
+            </div>
+            <Footer />
+            <BackToTop />
+            <Analytics />
+          </body>
+        </ProviderTheme>
+      </Suspense>
     </html>
   )
 }

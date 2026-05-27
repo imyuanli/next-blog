@@ -29,7 +29,7 @@ export default function RootLayout({
             <Header />
             <main
               className={
-                "md:mb-12 mb-8 w-full mx-auto max-w-6xl prose md:prose-lg dark:prose-invert"
+                "md:mb-12 mb-8 w-full mx-auto max-w-7xl prose md:prose-lg dark:prose-invert"
               }
             >
               <Title />

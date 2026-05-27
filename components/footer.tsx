@@ -17,7 +17,7 @@ const Footer = () => {
     isShow && (
       <div>
         <Separator />
-        <footer className={"w-full mx-auto max-w-6xl py-8 space-y-8"}>
+        <footer className={"w-full mx-auto max-w-7xl py-8 space-y-8"}>
           {position.footer && (
             <div
               className={

@@ -29,7 +29,7 @@ const Header = () => {
         "w-full sticky top-0 bg-white/80 dark:bg-black/70 backdrop-blur-md shadow-sm z-10 min-h-20"
       }
     >
-      <header className={"w-full mx-auto max-w-6xl flex justify-between py-4"}>
+      <header className={"w-full mx-auto max-w-7xl flex justify-between py-4"}>
         <div className={"flex justify-center items-center"}>
           <Link className={"flex justify-center items-center mr-4"} href={"/"}>
             {logo?.image && <Image src={logo?.image} height={28} width={28} alt={"logo"} />}

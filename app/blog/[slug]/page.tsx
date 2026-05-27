@@ -17,10 +17,21 @@ import remarkNormalizeHeadings from "remark-normalize-headings"
 import Toc from "@/components/toc"
 import { Button } from "@/components/ui/button"
 import { TableProperties } from "lucide-react"
-import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger, } from "@/components/ui/drawer"
+import {
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
+import { Metadata } from "next"
 
 const getPost = async (slug: string) => {
+  const res = getPostsData()
+  console.log("res", res)
+  console.log("slug", slug)
   const post: any = getPostsData().find((post) => post.id === slug)
+  console.log("post123123123", post)
   if (!post) return null
   // 获取目录数据
   const file = await remark()
@@ -40,8 +51,14 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }: any) {
-  const post: any = await getPost(params.slug)
+type Props = {
+  params: Promise<{ slug: string }>
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  // read route params
+  const { slug } = await params
+  const post: any = await getPost(slug)
   if (!post) return notFound()
   return {
     title: post.title,
@@ -49,75 +66,70 @@ export async function generateMetadata({ params }: any) {
   }
 }
 
-export default async function Post({ params }: any) {
-  const { slug } = params
+export default async function Post({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
   const post: any = await getPost(slug)
+  console.log("post", post)
   if (!post || post?.draft) notFound()
 
   return (
-    <div className={"w-full flex justify-center"}>
-      <div className={"w-full relative"}>
-        {/*mobile*/}
-        <div
-          className={
-            "block lg:hidden sticky top-20 p-2 bg-white/80 backdrop-blur-md z-10 w-full shadow-sm"
-          }
-        >
-          <div className={"flex justify-between"}>
-            <div className={"space-x-4"}>
-              <SideNav />
-            </div>
-            <Drawer>
-              <DrawerTrigger>
-                <Button size={"icon"} variant={"ghost"}>
-                  <TableProperties size={20} />
-                </Button>
-              </DrawerTrigger>
-              <DrawerContent>
-                <DrawerHeader>
-                  <DrawerTitle>Table of contents</DrawerTitle>
-                </DrawerHeader>
-                <Toc toc={post.toc} />
-              </DrawerContent>
-            </Drawer>
+    <div className={"w-full flex flex-col gap-4"}>
+      {/*mobile*/}
+      <div
+        className={
+          "block lg:hidden sticky top-20 p-2 bg-white/80 backdrop-blur-md z-10 w-full shadow-sm"
+        }
+      >
+        <div className={"flex justify-between"}>
+          <div className={"space-x-4"}>
+            <SideNav />
           </div>
-        </div>
-
-        {/*pc*/}
-        <div className={"px-4 pt-8"}>
-          <div className={"sticky top-28 hidden lg:block"}>
-            <div className={"absolute top-24 -left-16 -translate-x-full flex flex-col space-y-4"}>
-              <SideNav />
-            </div>
-            <div className={"absolute -right-8 translate-x-full"}>
-              <div className={"w-full h-full max-h-[80vh] overflow-auto"}>
-                <div className={"text-base font-bold mb-2"}>Table of contents</div>
-                <Toc toc={post.toc} />
-              </div>
-            </div>
-          </div>
-          <article>
-            <div className={"mb-3 text-base text-zinc-400"}>
-              <Time date={post.date} /> · {post.stats.words} words · {post.stats.text}
-            </div>
-            <Suspense fallback={<>Loading...</>}>
-              <MDXRemote
-                source={post.content}
-                options={{
-                  mdxOptions: {
-                    remarkPlugins: [remarkNormalizeHeadings, remarkGfm],
-                    rehypePlugins: [shiki, rehypeSlug, rehypeStringify, rehypeAutolinkHeadings],
-                    remarkRehypeOptions: {
-                      allowDangerousHtml: true,
-                    },
-                  },
-                }}
-              />
-            </Suspense>
-          </article>
-          <Comments />
+          <Drawer>
+            <DrawerTrigger>
+              <Button size={"icon"} variant={"ghost"}>
+                <TableProperties size={20} />
+              </Button>
+            </DrawerTrigger>
+            <DrawerContent>
+              <DrawerHeader>
+                <DrawerTitle>Table of contents</DrawerTitle>
+              </DrawerHeader>
+              <Toc toc={post.toc} />
+            </DrawerContent>
+          </Drawer>
         </div>
       </div>
+
+      {/*pc*/}
+      <div className={"h-full relative pt-8 flex gap-4"}>
+        <div className={"h-full sticky top-28"}>
+          <SideNav />
+        </div>
+        <article className={"w-full"}>
+          <div className={"mb-3 text-base text-zinc-400"}>
+            <Time date={post.date} /> · {post.stats.words} words · {post.stats.text}
+          </div>
+          <Suspense fallback={<>Loading...</>}>
+            <MDXRemote
+              source={post.content}
+              options={{
+                mdxOptions: {
+                  remarkPlugins: [remarkNormalizeHeadings, remarkGfm],
+                  rehypePlugins: [shiki, rehypeSlug, rehypeStringify, rehypeAutolinkHeadings],
+                  remarkRehypeOptions: {
+                    allowDangerousHtml: true,
+                  },
+                },
+              }}
+            />
+          </Suspense>
+        </article>
+        <div className={"w-full h-full max-h-[80vh] sticky top-28"}>
+          <div className={"text-base font-bold mb-2"}>Table of contents</div>
+          <Toc toc={post.toc} />
+        </div>
+      </div>
+      <Comments />
     </div>
   )
 }

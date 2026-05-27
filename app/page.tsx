@@ -1,6 +1,5 @@
-// @ts-ignore
-import Intro from "@/components/intro.mdx"
 import SocialList from "@/components/social-list"
+import Intro from "@/components/intro.mdx"
 
 import type { Metadata } from "next"
 import { getMetadata } from "@/lib/utils"

@@ -1,130 +1,69 @@
-# Pagora
+# NextBlog
 
-[English](README.md) | [简体中文](README.zh-CN.md)
+A minimal, responsive, and easy-to-use blog template.
 
-> **NextBlog is becoming Pagora.**
->
-> A composable content site foundation for blogs, documentation, and API references,
-> built with Next.js and Markdown/MDX.
+![next-blog](https://socialify.git.ci/imyuanli/next-blog/image?description=1&font=Inter&forks=1&issues=1&language=1&logo=https%3A%2F%2Fnext-blog.imyuanli.cn%2F_next%2Fimage%3Furl%3D%252Flogo.png%26w%3D32%26q%3D100&name=1&owner=1&pattern=Brick%20Wall&stargazers=1&theme=Auto)
 
-Pagora is the next chapter of this repository. What started as a personal Next.js blog is
-being rebuilt into a configuration-driven foundation for creating content-rich websites.
+[Perview](https://next-blog.imyuanli.cn/) |
+[Changelog](https://next-blog.imyuanli.cn/blog?tag=Features) |
+![GitHub license](https://img.shields.io/github/license/imyuanli/next-blog)
 
-The name combines **Page** and **Agora**: a place where articles, documentation, and API
-references can live together without forcing every site into the same shape.
+## Introduction
 
-## The upgrade
+NextBlog is **True simplicity rather than simplicity**✨, it is a minimal, responsive, and easy-to-use blog template ⚡.
 
-This is more than a repository rename. Pagora is moving toward a modular architecture where
-Blog, Docs, and API Reference are independent features that can be enabled together:
+Simple and clean, it is designed to place the reader's attention on what really matters: the content.
 
-| Module        | Route            | Status    |
-|---------------|------------------|-----------|
-| Blog          | `/blog`          | Available |
-| Docs          | `/docs`          | Planned   |
-| API Reference | `/api-reference` | Planned   |
+## Tech Stack
 
-The current Blog remains usable while the new foundation is delivered in small, compatible
-milestones. Existing content and URLs will be protected wherever possible.
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [MDX](https://mdxjs.com/)
+- [Shadcn-ui](https://ui.shadcn.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
-### What is coming
+## How to use?
 
-- Nested content and ordered collections powered by `meta.json`
-- A first-class Docs module with structured navigation
-- OpenAPI-powered API reference pages
-- Multiple themes and localized content
-- A `pagora` CLI with starter recipes for personal sites and developer portals
+NextBlog can be deployed with Vercel or Netlify, with a single click.
+> PS: 如果你是国内用户的话,我推荐你使用 [Netlify](https://app.netlify.com/)
 
-Pagora is under active development. Star or watch the repository if you want to follow the
-upgrade as each milestone lands.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/imyuanli/next-blog)
 
-## How Pagora works
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/imyuanli/next-blog)
 
-Pagora does not force a site into a permanent `blog`, `docs`, or `api` mode. These are
-composable modules with their own routes and layouts.
-
-The homepage is normal application code in `app/page.tsx`. A personal site can make it
-blog-focused, while a product site can use it as a landing page that links to any enabled
-modules.
-
-## Getting started
+Then you can clone the repository and run the following commands:
 
 ```bash
+git clone
+cd next-blog
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+You only need to modify the configuration file content and write articles.
 
-The npm name `pagora` has been reserved for the future CLI, but the CLI is not part of this
-milestone yet. Until it is implemented, use this repository directly.
+- configuration file: `blog.config.ts`
+- article file: `posts/*.mdx | posts/*.md`
 
-## Configuration
+## Features
 
-Edit `pagora.config.ts` to configure global site information, navigation, the Blog module,
-and optional integrations:
+1. [x] **Mobile responsive**
+2. [x] **Comments**
+3. [x] **Search**
+4. [x] **SEO friendly**
+5. [x] **Dark mode**
+6. [x] **Tags**
+7. [x] **Pagination**
+8. [x] **remark and rehype plugins**
+9. [x] **Syntax highlighting**
+10.[x] **Subscribe**
 
-```ts
-import {defineConfig} from "./lib/pagora-config"
+...To be updated
 
-export default defineConfig({
-  site: {
-    // Branding, metadata, theme, social links, and footer.
-  },
-  navigation: [],
-  modules: {
-    blog: {
-      path: "/blog",
-      title: "Blog",
-      description: "Latest articles and updates.",
-      pinnedSort: "desc",
-      tags: {
-        path: "/tags",
-        title: "Tags",
-        description: "Browse posts by tag.",
-      },
-    },
-  },
-  integrations: {
-    // Set an integration to false to disable it.
-  },
-})
-```
-
-Homepage content does not belong in this config. Edit `app/page.tsx` directly. Data for
-custom pages should stay next to that page; for example, project data lives in
-`app/project/_data/projects.ts`.
-
-## Writing posts
-
-Create Markdown or MDX files in `content/posts`:
-
-```yaml
----
-title: "Article title"
-summary: "Article summary"
-date: 2026-07-22
-tags: [ "Pagora" ]
-draft: false
-pinned: 1
----
-```
-
-Content Collections generates the source data. Pagora pages access it through the contracts
-and adapter in `lib/content`, which keeps the UI independent from the underlying content
-engine.
-
-Nested folders and `meta.json` collections are not supported yet; they are the next content
-milestone after the configuration foundation.
-
-## Validation
-
-```bash
-npx tsc --noEmit --incremental false
-npx eslint .
-npm run build
-```
+If you have any ideas, please let me know.
 
 ## License
 
-Pagora is licensed under the [MIT License](LICENSE).
+NextBlog is licensed under the MIT License.
+
+The README.md file powered by [RMX](https://readme.imyuanli.cn/).

@@ -1,124 +1,70 @@
-# Pagora
+# NextBlog
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-> **NextBlog 正在升级为 Pagora。**
->
-> 一个基于 Next.js 与 Markdown/MDX，为博客、产品文档和 API Reference 打造的
-> 可组合内容站点基础。
+一个简洁、响应式且易于使用的博客模板。
 
-Pagora 是这个仓库的新篇章。它最初只是一个个人 Next.js 博客，现在正被重新构建为
-配置驱动的内容站点基础，用来创建结构丰富、可以持续扩展的网站。
+![next-blog](https://socialify.git.ci/imyuanli/next-blog/image?description=1&font=Inter&forks=1&issues=1&language=1&logo=https%3A%2F%2Fnext-blog.imyuanli.cn%2F_next%2Fimage%3Furl%3D%252Flogo.png%26w%3D32%26q%3D100&name=1&owner=1&pattern=Brick%20Wall&stargazers=1&theme=Auto)
 
-`Pagora` 由 **Page** 与 **Agora** 组合而来：让文章、产品文档和 API Reference 汇聚在
-同一个空间里，同时不强迫所有网站使用相同的形态。
+[预览](https://next-blog.imyuanli.cn/) |
+[Changelog](https://next-blog.imyuanli.cn/blog?tag=Features) |
+![GitHub license](https://img.shields.io/github/license/imyuanli/next-blog)
 
-## 这次升级
+## 简介
 
-这不只是一次仓库改名。Pagora 正在转向模块化架构，Blog、Docs 与 API Reference
-将成为可以同时启用、独立组合的功能模块：
+NextBlog 坚持 **True simplicity rather than simplicity** ✨，是一个简洁、响应式且易于使用的博客模板 ⚡。
 
-| 模块 | 路由 | 状态 |
-| --- | --- | --- |
-| Blog | `/blog` | 当前可用 |
-| Docs | `/docs` | 规划中 |
-| API Reference | `/api-reference` | 规划中 |
+界面简约清晰，让读者的注意力回到真正重要的内容上。
 
-在新架构按里程碑逐步落地的过程中，现有 Blog 仍然可以正常使用。我们会尽可能保护
-已有内容和 URL 的兼容性。
+## 技术栈
 
-### 接下来会有什么
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [MDX](https://mdxjs.com/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
-- 基于 `meta.json` 的嵌套内容与有序合集
-- 带结构化导航的 Docs 模块
-- 基于 OpenAPI 的 API Reference 页面
-- 多主题与本地化内容
-- 提供个人站点和开发者门户初始化配方的 `pagora` CLI
+## 如何使用？
 
-Pagora 正在积极开发中。欢迎 Star 或 Watch 本仓库，关注每一个新里程碑的进展。
+NextBlog 支持通过 Vercel 或 Netlify 一键部署。
 
-## Pagora 如何工作
+> 如果你在中国大陆，推荐使用 [Netlify](https://app.netlify.com/)。
 
-Pagora 不会要求网站永久选择 `blog`、`docs` 或 `api` 中的某一种模式。它们是拥有各自
-路由和布局的可组合模块。
+[![使用 Vercel 部署](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/imyuanli/next-blog)
 
-首页仍然是普通的应用代码，由 `app/page.tsx` 完全控制。个人站点可以让首页以博客为主，
-产品站点也可以把它设计为 Landing Page，并导航到任意已经启用的模块。
+[![部署到 Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/imyuanli/next-blog)
 
-## 快速开始
+也可以先克隆仓库，再执行以下命令：
 
 ```bash
+git clone https://github.com/imyuanli/next-blog.git
+cd next-blog
 npm install
 npm run dev
 ```
 
-打开 [http://localhost:3000](http://localhost:3000)。
+之后只需要修改配置文件并撰写文章即可：
 
-npm 包名 `pagora` 已经为未来的 CLI 预留，但当前里程碑尚未包含 CLI。在 CLI 正式实现前，
-请直接使用本仓库。
+- 配置文件：`blog.config.ts`
+- 文章文件：`posts/*.mdx` 或 `posts/*.md`
 
-## 配置
+## 功能
 
-编辑 `pagora.config.ts`，配置站点全局信息、导航、Blog 模块和可选 integrations：
+1. [x] **移动端适配**
+2. [x] **评论**
+3. [x] **搜索**
+4. [x] **SEO 友好**
+5. [x] **暗色模式**
+6. [x] **标签**
+7. [x] **分页**
+8. [x] **remark 和 rehype 插件**
+9. [x] **语法高亮**
+10. [x] **订阅**
 
-```ts
-import { defineConfig } from "./lib/pagora-config"
-
-export default defineConfig({
-  site: {
-    // 品牌、metadata、主题、社交链接和页脚。
-  },
-  navigation: [],
-  modules: {
-    blog: {
-      path: "/blog",
-      title: "Blog",
-      description: "Latest articles and updates.",
-      pinnedSort: "desc",
-      tags: {
-        path: "/tags",
-        title: "Tags",
-        description: "Browse posts by tag.",
-      },
-    },
-  },
-  integrations: {
-    // 设置为 false 可以关闭对应 integration。
-  },
-})
-```
-
-首页内容不属于这份配置，请直接编辑 `app/page.tsx`。自定义页面的数据应放在对应页面附近；
-例如，项目展示数据位于 `app/project/_data/projects.ts`。
-
-## 撰写文章
-
-在 `content/posts` 中创建 Markdown 或 MDX 文件：
-
-```yaml
----
-title: "Article title"
-summary: "Article summary"
-date: 2026-07-22
-tags: ["Pagora"]
-draft: false
-pinned: 1
----
-```
-
-Content Collections 负责生成内容数据。Pagora 页面通过 `lib/content` 中的内容契约和适配器
-读取数据，使 UI 不与底层内容引擎直接耦合。
-
-嵌套目录和基于 `meta.json` 的合集目前尚未支持；它们是配置基础之后的下一个内容里程碑。
-
-## 验证
-
-```bash
-npx tsc --noEmit --incremental false
-npx eslint .
-npm run build
-```
+功能仍在持续完善中。如果你有任何想法，欢迎提出反馈。
 
 ## 许可证
 
-Pagora 使用 [MIT License](LICENSE)。
+NextBlog 使用 [MIT License](LICENSE) 授权。
+
+README.md 由 [RMX](https://readme.imyuanli.cn/) 生成。
